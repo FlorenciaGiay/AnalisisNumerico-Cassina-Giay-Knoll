@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30114.105
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TP Analisis Numerico", "TP Analisis Numerico\TP Analisis Numerico.csproj", "{619D662F-FE69-42E2-B067-54D8373F928D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unidad 1", "Unidad 1\Unidad 1.csproj", "{8B2BA2FB-E554-474F-9E10-CCF6B95361F2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{619D662F-FE69-42E2-B067-54D8373F928D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{619D662F-FE69-42E2-B067-54D8373F928D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{619D662F-FE69-42E2-B067-54D8373F928D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{619D662F-FE69-42E2-B067-54D8373F928D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B2BA2FB-E554-474F-9E10-CCF6B95361F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B2BA2FB-E554-474F-9E10-CCF6B95361F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B2BA2FB-E554-474F-9E10-CCF6B95361F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B2BA2FB-E554-474F-9E10-CCF6B95361F2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C8C78F08-56B2-4168-849E-E8156B23B8D6}
+	EndGlobalSection
+EndGlobal
