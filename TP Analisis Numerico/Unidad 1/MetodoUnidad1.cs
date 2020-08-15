@@ -3,13 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using org.mariuszgromada.math.mxparser;
 
 namespace Unidad_1
 {
     public class MetodoUnidad1
     {
-        public Salida ObtenerRaiz(string metodo, int maxiteraciones, double tolerancia, double limiteizquierdo, double limitederecho)
+        //Evaluar funcion
+        private double EvaluarFuncion(double x)
+        {
+            return Math.Pow(x, 2) + 4;
+        }
+
+        //Metodos cerrados
+        public Salida ObtenerRaizMetodosCerrados(string metodo, int maxiteraciones, double tolerancia, double limiteizquierdo, double limitederecho)
         {
             Salida nuevaSalida = new Salida();
             if ((EvaluarFuncion(limiteizquierdo) * EvaluarFuncion(limitederecho)) > 0)
@@ -84,9 +90,64 @@ namespace Unidad_1
             return ((EvaluarFuncion(limitederecho)*limiteizquierdo-EvaluarFuncion(limiteizquierdo)*limitederecho)/(EvaluarFuncion(limitederecho)-EvaluarFuncion(limiteizquierdo)));
         }
 
-        private double EvaluarFuncion (double x)
+        //Metodos abiertos
+        public Salida ObtenerRaizMetodosAbiertos(string metodo, int maxiteraciones, double tolerancia, double xi)
         {
-            return Math.Pow(x,2)-4;
+            Salida nuevaSalida = new Salida();
+            if(Math.Abs(EvaluarFuncion(xi))<tolerancia)
+            {
+                nuevaSalida.RaizEncontrada = xi;
+            }
+            else
+            {
+                int iteraciones = 0;
+                double anterior = 0;
+                iteraciones++;
+                double raiz = 0;
+                switch (metodo)
+                {
+                    case "Newton Raphson":
+                        raiz = ObtenerRaizMetodoNewtonRaphson(xi, tolerancia);
+                        break;
+                    case "Secante":
+                        raiz = ObtenerRaizMetodoSecante(xi);
+                        break;
+                }
+                double error = Math.Abs((raiz - anterior) / raiz);
+                while(!(Math.Abs(EvaluarFuncion(raiz)) < tolerancia || error < tolerancia || iteraciones >= maxiteraciones))
+                {
+                    xi = raiz;
+                    anterior = raiz;
+                    iteraciones++;
+                    raiz = 0;
+                    switch (metodo)
+                    {
+                        case "Newton Raphson":
+                            raiz = ObtenerRaizMetodoNewtonRaphson(xi, tolerancia);
+                            break;
+                        case "Secante":
+                            raiz = ObtenerRaizMetodoSecante(xi);
+                            break;
+                    }
+                    error = Math.Abs((raiz - anterior) / raiz);
+                }
+                nuevaSalida.RaizEncontrada = raiz;
+                nuevaSalida.IteracionesRealizadas = iteraciones;
+                nuevaSalida.ErrorRelativo = error;
+            }
+            return nuevaSalida;
         }
+
+        public double ObtenerRaizMetodoNewtonRaphson(double xi, double tolerancia)
+        {
+            return xi-(EvaluarFuncion(xi)/((EvaluarFuncion(xi+tolerancia)-EvaluarFuncion(xi))/tolerancia));
+        }
+
+        public double ObtenerRaizMetodoSecante(double xi)
+        {
+            return (EvaluarFuncion(xi+1)*xi-EvaluarFuncion(xi)*(xi+1))/(EvaluarFuncion(xi+1)-EvaluarFuncion(xi));
+        }
+
+
     }
 }

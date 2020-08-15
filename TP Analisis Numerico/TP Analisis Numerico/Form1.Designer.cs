@@ -33,7 +33,7 @@
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabActividad1 = new System.Windows.Forms.TabPage();
             this.label1 = new System.Windows.Forms.Label();
-            this.tabControl3 = new System.Windows.Forms.TabControl();
+            this.tabMetodos = new System.Windows.Forms.TabControl();
             this.tabBiseccion = new System.Windows.Forms.TabPage();
             this.tituloSalida = new System.Windows.Forms.GroupBox();
             this.btnObtener_Biseccion = new System.Windows.Forms.Button();
@@ -54,23 +54,25 @@
             this.label7 = new System.Windows.Forms.Label();
             this.tabNewtonRaphson = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
+            this.btnObtener_NR = new System.Windows.Forms.Button();
+            this.lblIteraciones_NR = new System.Windows.Forms.Label();
+            this.lblErrorRelativo_NR = new System.Windows.Forms.Label();
+            this.lblSolucionRaiz_NR = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.tabSecante = new System.Windows.Forms.TabPage();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
+            this.btnObtener_Secante = new System.Windows.Forms.Button();
+            this.lblIteraciones_Secante = new System.Windows.Forms.Label();
+            this.lblErrorRelativo_Secante = new System.Windows.Forms.Label();
+            this.lblSolucionRaiz_Secante = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.tituloEntrada = new System.Windows.Forms.GroupBox();
+            this.lblPuntoInicial = new System.Windows.Forms.Label();
+            this.tbxPuntoInicial = new System.Windows.Forms.TextBox();
             this.tbxLD = new System.Windows.Forms.TextBox();
             this.tbxLI = new System.Windows.Forms.TextBox();
             this.tbxMaxIteraciones = new System.Windows.Forms.TextBox();
@@ -86,7 +88,7 @@
             this.tabUnidad1.SuspendLayout();
             this.tabControl2.SuspendLayout();
             this.tabActividad1.SuspendLayout();
-            this.tabControl3.SuspendLayout();
+            this.tabMetodos.SuspendLayout();
             this.tabBiseccion.SuspendLayout();
             this.tituloSalida.SuspendLayout();
             this.tabReglaFalsa.SuspendLayout();
@@ -131,7 +133,7 @@
             // tabActividad1
             // 
             this.tabActividad1.Controls.Add(this.label1);
-            this.tabActividad1.Controls.Add(this.tabControl3);
+            this.tabActividad1.Controls.Add(this.tabMetodos);
             this.tabActividad1.Controls.Add(this.tituloEntrada);
             this.tabActividad1.Location = new System.Drawing.Point(4, 22);
             this.tabActividad1.Name = "tabActividad1";
@@ -150,17 +152,18 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Métodos:";
             // 
-            // tabControl3
+            // tabMetodos
             // 
-            this.tabControl3.Controls.Add(this.tabBiseccion);
-            this.tabControl3.Controls.Add(this.tabReglaFalsa);
-            this.tabControl3.Controls.Add(this.tabNewtonRaphson);
-            this.tabControl3.Controls.Add(this.tabSecante);
-            this.tabControl3.Location = new System.Drawing.Point(23, 168);
-            this.tabControl3.Name = "tabControl3";
-            this.tabControl3.SelectedIndex = 0;
-            this.tabControl3.Size = new System.Drawing.Size(719, 169);
-            this.tabControl3.TabIndex = 1;
+            this.tabMetodos.Controls.Add(this.tabBiseccion);
+            this.tabMetodos.Controls.Add(this.tabReglaFalsa);
+            this.tabMetodos.Controls.Add(this.tabNewtonRaphson);
+            this.tabMetodos.Controls.Add(this.tabSecante);
+            this.tabMetodos.Location = new System.Drawing.Point(23, 168);
+            this.tabMetodos.Name = "tabMetodos";
+            this.tabMetodos.SelectedIndex = 0;
+            this.tabMetodos.Size = new System.Drawing.Size(719, 169);
+            this.tabMetodos.TabIndex = 1;
+            this.tabMetodos.Click += new System.EventHandler(this.tabMetodos_Click);
             // 
             // tabBiseccion
             // 
@@ -356,10 +359,10 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.button2);
-            this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Controls.Add(this.label9);
-            this.groupBox2.Controls.Add(this.label10);
+            this.groupBox2.Controls.Add(this.btnObtener_NR);
+            this.groupBox2.Controls.Add(this.lblIteraciones_NR);
+            this.groupBox2.Controls.Add(this.lblErrorRelativo_NR);
+            this.groupBox2.Controls.Add(this.lblSolucionRaiz_NR);
             this.groupBox2.Controls.Add(this.label11);
             this.groupBox2.Controls.Add(this.label12);
             this.groupBox2.Controls.Add(this.label13);
@@ -370,41 +373,42 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Datos de Salida:";
             // 
-            // button2
+            // btnObtener_NR
             // 
-            this.button2.Location = new System.Drawing.Point(373, 46);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "OBTENER";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnObtener_NR.Location = new System.Drawing.Point(373, 46);
+            this.btnObtener_NR.Name = "btnObtener_NR";
+            this.btnObtener_NR.Size = new System.Drawing.Size(75, 23);
+            this.btnObtener_NR.TabIndex = 6;
+            this.btnObtener_NR.Text = "OBTENER";
+            this.btnObtener_NR.UseVisualStyleBackColor = true;
+            this.btnObtener_NR.Click += new System.EventHandler(this.btnObtener_NR_Click);
             // 
-            // label8
+            // lblIteraciones_NR
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(95, 32);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(13, 13);
-            this.label8.TabIndex = 5;
-            this.label8.Text = "--";
+            this.lblIteraciones_NR.AutoSize = true;
+            this.lblIteraciones_NR.Location = new System.Drawing.Point(95, 32);
+            this.lblIteraciones_NR.Name = "lblIteraciones_NR";
+            this.lblIteraciones_NR.Size = new System.Drawing.Size(13, 13);
+            this.lblIteraciones_NR.TabIndex = 5;
+            this.lblIteraciones_NR.Text = "--";
             // 
-            // label9
+            // lblErrorRelativo_NR
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(114, 57);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(13, 13);
-            this.label9.TabIndex = 4;
-            this.label9.Text = "--";
+            this.lblErrorRelativo_NR.AutoSize = true;
+            this.lblErrorRelativo_NR.Location = new System.Drawing.Point(114, 57);
+            this.lblErrorRelativo_NR.Name = "lblErrorRelativo_NR";
+            this.lblErrorRelativo_NR.Size = new System.Drawing.Size(13, 13);
+            this.lblErrorRelativo_NR.TabIndex = 4;
+            this.lblErrorRelativo_NR.Text = "--";
             // 
-            // label10
+            // lblSolucionRaiz_NR
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(114, 86);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(13, 13);
-            this.label10.TabIndex = 3;
-            this.label10.Text = "--";
+            this.lblSolucionRaiz_NR.AutoSize = true;
+            this.lblSolucionRaiz_NR.Location = new System.Drawing.Point(114, 86);
+            this.lblSolucionRaiz_NR.Name = "lblSolucionRaiz_NR";
+            this.lblSolucionRaiz_NR.Size = new System.Drawing.Size(13, 13);
+            this.lblSolucionRaiz_NR.TabIndex = 3;
+            this.lblSolucionRaiz_NR.Text = "--";
             // 
             // label11
             // 
@@ -445,10 +449,10 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.button3);
-            this.groupBox3.Controls.Add(this.label14);
-            this.groupBox3.Controls.Add(this.label15);
-            this.groupBox3.Controls.Add(this.label16);
+            this.groupBox3.Controls.Add(this.btnObtener_Secante);
+            this.groupBox3.Controls.Add(this.lblIteraciones_Secante);
+            this.groupBox3.Controls.Add(this.lblErrorRelativo_Secante);
+            this.groupBox3.Controls.Add(this.lblSolucionRaiz_Secante);
             this.groupBox3.Controls.Add(this.label17);
             this.groupBox3.Controls.Add(this.label18);
             this.groupBox3.Controls.Add(this.label19);
@@ -459,41 +463,42 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Datos de Salida:";
             // 
-            // button3
+            // btnObtener_Secante
             // 
-            this.button3.Location = new System.Drawing.Point(373, 46);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 6;
-            this.button3.Text = "OBTENER";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnObtener_Secante.Location = new System.Drawing.Point(373, 46);
+            this.btnObtener_Secante.Name = "btnObtener_Secante";
+            this.btnObtener_Secante.Size = new System.Drawing.Size(75, 23);
+            this.btnObtener_Secante.TabIndex = 6;
+            this.btnObtener_Secante.Text = "OBTENER";
+            this.btnObtener_Secante.UseVisualStyleBackColor = true;
+            this.btnObtener_Secante.Click += new System.EventHandler(this.btnObtener_Secante_Click);
             // 
-            // label14
+            // lblIteraciones_Secante
             // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(95, 32);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(13, 13);
-            this.label14.TabIndex = 5;
-            this.label14.Text = "--";
+            this.lblIteraciones_Secante.AutoSize = true;
+            this.lblIteraciones_Secante.Location = new System.Drawing.Point(95, 32);
+            this.lblIteraciones_Secante.Name = "lblIteraciones_Secante";
+            this.lblIteraciones_Secante.Size = new System.Drawing.Size(13, 13);
+            this.lblIteraciones_Secante.TabIndex = 5;
+            this.lblIteraciones_Secante.Text = "--";
             // 
-            // label15
+            // lblErrorRelativo_Secante
             // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(114, 57);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(13, 13);
-            this.label15.TabIndex = 4;
-            this.label15.Text = "--";
+            this.lblErrorRelativo_Secante.AutoSize = true;
+            this.lblErrorRelativo_Secante.Location = new System.Drawing.Point(114, 57);
+            this.lblErrorRelativo_Secante.Name = "lblErrorRelativo_Secante";
+            this.lblErrorRelativo_Secante.Size = new System.Drawing.Size(13, 13);
+            this.lblErrorRelativo_Secante.TabIndex = 4;
+            this.lblErrorRelativo_Secante.Text = "--";
             // 
-            // label16
+            // lblSolucionRaiz_Secante
             // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(114, 86);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(13, 13);
-            this.label16.TabIndex = 3;
-            this.label16.Text = "--";
+            this.lblSolucionRaiz_Secante.AutoSize = true;
+            this.lblSolucionRaiz_Secante.Location = new System.Drawing.Point(114, 86);
+            this.lblSolucionRaiz_Secante.Name = "lblSolucionRaiz_Secante";
+            this.lblSolucionRaiz_Secante.Size = new System.Drawing.Size(13, 13);
+            this.lblSolucionRaiz_Secante.TabIndex = 3;
+            this.lblSolucionRaiz_Secante.Text = "--";
             // 
             // label17
             // 
@@ -524,6 +529,8 @@
             // 
             // tituloEntrada
             // 
+            this.tituloEntrada.Controls.Add(this.lblPuntoInicial);
+            this.tituloEntrada.Controls.Add(this.tbxPuntoInicial);
             this.tituloEntrada.Controls.Add(this.tbxLD);
             this.tituloEntrada.Controls.Add(this.tbxLI);
             this.tituloEntrada.Controls.Add(this.tbxMaxIteraciones);
@@ -540,6 +547,24 @@
             this.tituloEntrada.TabIndex = 0;
             this.tituloEntrada.TabStop = false;
             this.tituloEntrada.Text = "Datos de Entrada:";
+            // 
+            // lblPuntoInicial
+            // 
+            this.lblPuntoInicial.AutoSize = true;
+            this.lblPuntoInicial.Location = new System.Drawing.Point(340, 86);
+            this.lblPuntoInicial.Name = "lblPuntoInicial";
+            this.lblPuntoInicial.Size = new System.Drawing.Size(27, 13);
+            this.lblPuntoInicial.TabIndex = 11;
+            this.lblPuntoInicial.Text = "Xini:";
+            this.lblPuntoInicial.Visible = false;
+            // 
+            // tbxPuntoInicial
+            // 
+            this.tbxPuntoInicial.Location = new System.Drawing.Point(405, 83);
+            this.tbxPuntoInicial.Name = "tbxPuntoInicial";
+            this.tbxPuntoInicial.Size = new System.Drawing.Size(100, 20);
+            this.tbxPuntoInicial.TabIndex = 10;
+            this.tbxPuntoInicial.Visible = false;
             // 
             // tbxLD
             // 
@@ -644,7 +669,7 @@
             this.tabControl2.ResumeLayout(false);
             this.tabActividad1.ResumeLayout(false);
             this.tabActividad1.PerformLayout();
-            this.tabControl3.ResumeLayout(false);
+            this.tabMetodos.ResumeLayout(false);
             this.tabBiseccion.ResumeLayout(false);
             this.tituloSalida.ResumeLayout(false);
             this.tituloSalida.PerformLayout();
@@ -671,7 +696,7 @@
         private System.Windows.Forms.TabControl tabControl2;
         private System.Windows.Forms.TabPage tabActividad1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TabControl tabControl3;
+        private System.Windows.Forms.TabControl tabMetodos;
         private System.Windows.Forms.TabPage tabBiseccion;
         private System.Windows.Forms.TabPage tabReglaFalsa;
         private System.Windows.Forms.GroupBox tituloEntrada;
@@ -704,21 +729,23 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Button btnObtener_NR;
+        private System.Windows.Forms.Label lblIteraciones_NR;
+        private System.Windows.Forms.Label lblErrorRelativo_NR;
+        private System.Windows.Forms.Label lblSolucionRaiz_NR;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Button btnObtener_Secante;
+        private System.Windows.Forms.Label lblIteraciones_Secante;
+        private System.Windows.Forms.Label lblErrorRelativo_Secante;
+        private System.Windows.Forms.Label lblSolucionRaiz_Secante;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label lblPuntoInicial;
+        private System.Windows.Forms.TextBox tbxPuntoInicial;
     }
 }
 
