@@ -66,10 +66,11 @@ namespace TP_Analisis_Numerico
         {
             if (tbxFuncion.Text != "" && tbxTolerancia.Text != "" && tbxMaxIteraciones.Text != "" && tbxPuntoInicial.Text != "")
             {
-                Salida resultado = Logica.ObtenerRaizMetodosAbiertos("Newton Raphson", int.Parse(tbxMaxIteraciones.Text), double.Parse(tbxTolerancia.Text), double.Parse(tbxPuntoInicial.Text));
+                Salida resultado = Logica.ObtenerRaizMetodoNewtonRaphson(int.Parse(tbxMaxIteraciones.Text), double.Parse(tbxTolerancia.Text), double.Parse(tbxPuntoInicial.Text));
                 lblIteraciones_NR.Text = $"{resultado.IteracionesRealizadas}";
                 lblErrorRelativo_NR.Text = $"{resultado.ErrorRelativo}";
                 lblSolucionRaiz_NR.Text = $"{resultado.RaizEncontrada}";
+                lblMensaje_NR.Text = $"{resultado.Mensaje}";
             }
         }
 
@@ -77,10 +78,11 @@ namespace TP_Analisis_Numerico
         {
             if (tbxFuncion.Text != "" && tbxTolerancia.Text != "" && tbxMaxIteraciones.Text != "" && tbxPuntoInicial.Text != "")
             {
-                Salida resultado = Logica.ObtenerRaizMetodosAbiertos("Secante", int.Parse(tbxMaxIteraciones.Text), double.Parse(tbxTolerancia.Text), double.Parse(tbxPuntoInicial.Text));
+                Salida resultado = Logica.ObtenerRaizMetodoSecante(int.Parse(tbxMaxIteraciones.Text), double.Parse(tbxTolerancia.Text), double.Parse(tbxPuntoInicial.Text));
                 lblIteraciones_Secante.Text = $"{resultado.IteracionesRealizadas}";
                 lblErrorRelativo_Secante.Text = $"{resultado.ErrorRelativo}";
                 lblSolucionRaiz_Secante.Text = $"{resultado.RaizEncontrada}";
+                lblMensaje_Secante.Text = $"{resultado.Mensaje}";
             }
         }
 
@@ -105,5 +107,6 @@ namespace TP_Analisis_Numerico
                 tbxPuntoInicial.Visible = false;
             }
         }
+
     }
 }

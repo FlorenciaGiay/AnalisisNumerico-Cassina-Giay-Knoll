@@ -54,6 +54,8 @@
             this.label7 = new System.Windows.Forms.Label();
             this.tabNewtonRaphson = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.lblMensaje_NR = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.btnObtener_NR = new System.Windows.Forms.Button();
             this.lblIteraciones_NR = new System.Windows.Forms.Label();
             this.lblErrorRelativo_NR = new System.Windows.Forms.Label();
@@ -63,6 +65,8 @@
             this.label13 = new System.Windows.Forms.Label();
             this.tabSecante = new System.Windows.Forms.TabPage();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.lblMensaje_Secante = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.btnObtener_Secante = new System.Windows.Forms.Button();
             this.lblIteraciones_Secante = new System.Windows.Forms.Label();
             this.lblErrorRelativo_Secante = new System.Windows.Forms.Label();
@@ -194,7 +198,7 @@
             // 
             // btnObtener_Biseccion
             // 
-            this.btnObtener_Biseccion.Location = new System.Drawing.Point(373, 46);
+            this.btnObtener_Biseccion.Location = new System.Drawing.Point(528, 47);
             this.btnObtener_Biseccion.Name = "btnObtener_Biseccion";
             this.btnObtener_Biseccion.Size = new System.Drawing.Size(75, 23);
             this.btnObtener_Biseccion.TabIndex = 6;
@@ -285,7 +289,7 @@
             // 
             // btnObtener_RF
             // 
-            this.btnObtener_RF.Location = new System.Drawing.Point(373, 46);
+            this.btnObtener_RF.Location = new System.Drawing.Point(528, 47);
             this.btnObtener_RF.Name = "btnObtener_RF";
             this.btnObtener_RF.Size = new System.Drawing.Size(75, 23);
             this.btnObtener_RF.TabIndex = 6;
@@ -359,6 +363,8 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.lblMensaje_NR);
+            this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.btnObtener_NR);
             this.groupBox2.Controls.Add(this.lblIteraciones_NR);
             this.groupBox2.Controls.Add(this.lblErrorRelativo_NR);
@@ -373,9 +379,27 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Datos de Salida:";
             // 
+            // lblMensaje_NR
+            // 
+            this.lblMensaje_NR.AutoSize = true;
+            this.lblMensaje_NR.Location = new System.Drawing.Point(225, 32);
+            this.lblMensaje_NR.Name = "lblMensaje_NR";
+            this.lblMensaje_NR.Size = new System.Drawing.Size(13, 13);
+            this.lblMensaje_NR.TabIndex = 8;
+            this.lblMensaje_NR.Text = "--";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(166, 32);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(53, 13);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Mensaje: ";
+            // 
             // btnObtener_NR
             // 
-            this.btnObtener_NR.Location = new System.Drawing.Point(373, 46);
+            this.btnObtener_NR.Location = new System.Drawing.Point(528, 47);
             this.btnObtener_NR.Name = "btnObtener_NR";
             this.btnObtener_NR.Size = new System.Drawing.Size(75, 23);
             this.btnObtener_NR.TabIndex = 6;
@@ -449,6 +473,8 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.lblMensaje_Secante);
+            this.groupBox3.Controls.Add(this.label4);
             this.groupBox3.Controls.Add(this.btnObtener_Secante);
             this.groupBox3.Controls.Add(this.lblIteraciones_Secante);
             this.groupBox3.Controls.Add(this.lblErrorRelativo_Secante);
@@ -463,9 +489,27 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Datos de Salida:";
             // 
+            // lblMensaje_Secante
+            // 
+            this.lblMensaje_Secante.AutoSize = true;
+            this.lblMensaje_Secante.Location = new System.Drawing.Point(225, 32);
+            this.lblMensaje_Secante.Name = "lblMensaje_Secante";
+            this.lblMensaje_Secante.Size = new System.Drawing.Size(13, 13);
+            this.lblMensaje_Secante.TabIndex = 10;
+            this.lblMensaje_Secante.Text = "--";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(166, 32);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(53, 13);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "Mensaje: ";
+            // 
             // btnObtener_Secante
             // 
-            this.btnObtener_Secante.Location = new System.Drawing.Point(373, 46);
+            this.btnObtener_Secante.Location = new System.Drawing.Point(528, 47);
             this.btnObtener_Secante.Name = "btnObtener_Secante";
             this.btnObtener_Secante.Size = new System.Drawing.Size(75, 23);
             this.btnObtener_Secante.TabIndex = 6;
@@ -746,6 +790,10 @@
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label lblPuntoInicial;
         private System.Windows.Forms.TextBox tbxPuntoInicial;
+        private System.Windows.Forms.Label lblMensaje_NR;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblMensaje_Secante;
+        private System.Windows.Forms.Label label4;
     }
 }
 

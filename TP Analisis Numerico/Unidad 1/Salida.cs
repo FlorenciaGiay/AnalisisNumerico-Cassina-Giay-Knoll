@@ -11,5 +11,6 @@ namespace Unidad_1
         public int IteracionesRealizadas { get; set; }
         public double ErrorRelativo { get; set; }
         public double RaizEncontrada { get; set; }
+        public string Mensaje { get; set; }
     }
 }

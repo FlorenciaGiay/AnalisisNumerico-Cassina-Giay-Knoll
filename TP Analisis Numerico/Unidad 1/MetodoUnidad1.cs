@@ -11,7 +11,7 @@ namespace Unidad_1
         //Evaluar funcion
         private double EvaluarFuncion(double x)
         {
-            return Math.Pow(x, 2) + 4;
+            return Math.Pow(x,2)-3;
         }
 
         //Metodos cerrados
@@ -91,7 +91,7 @@ namespace Unidad_1
         }
 
         //Metodos abiertos
-        public Salida ObtenerRaizMetodosAbiertos(string metodo, int maxiteraciones, double tolerancia, double xi)
+        public Salida ObtenerRaizMetodoNewtonRaphson(int maxiteraciones, double tolerancia, double xi)
         {
             Salida nuevaSalida = new Salida();
             if(Math.Abs(EvaluarFuncion(xi))<tolerancia)
@@ -101,51 +101,109 @@ namespace Unidad_1
             else
             {
                 int iteraciones = 0;
-                double anterior = 0;
+                double anterior1 = 0;
+                double anterior2 = 0;
+                double anterior3 = 0;
                 iteraciones++;
-                double raiz = 0;
-                switch (metodo)
+                double derivada = (EvaluarFuncion(xi + tolerancia) - EvaluarFuncion(xi)) / tolerancia;
+                if (derivada>0)
                 {
-                    case "Newton Raphson":
-                        raiz = ObtenerRaizMetodoNewtonRaphson(xi, tolerancia);
-                        break;
-                    case "Secante":
-                        raiz = ObtenerRaizMetodoSecante(xi);
-                        break;
-                }
-                double error = Math.Abs((raiz - anterior) / raiz);
-                while(!(Math.Abs(EvaluarFuncion(raiz)) < tolerancia || error < tolerancia || iteraciones >= maxiteraciones))
-                {
-                    xi = raiz;
-                    anterior = raiz;
-                    iteraciones++;
-                    raiz = 0;
-                    switch (metodo)
+                    double raiz = ObtenerRaizMetodoNewtonRaphson(xi, tolerancia, derivada);
+                    double error = Math.Abs((raiz - anterior3) / raiz);
+                    while (!(Math.Abs(EvaluarFuncion(raiz)) < tolerancia || error < tolerancia || iteraciones >= maxiteraciones))
                     {
-                        case "Newton Raphson":
-                            raiz = ObtenerRaizMetodoNewtonRaphson(xi, tolerancia);
-                            break;
-                        case "Secante":
-                            raiz = ObtenerRaizMetodoSecante(xi);
-                            break;
+                        xi = raiz;
+                        anterior1 = anterior2;
+                        anterior2 = anterior3;
+                        anterior3 = raiz;
+                        iteraciones++;
+                        derivada = 1;
+                        derivada = (EvaluarFuncion(xi + tolerancia) - EvaluarFuncion(xi)) / tolerancia;
+                        if (derivada>0)
+                        {
+                            raiz = ObtenerRaizMetodoNewtonRaphson(xi, tolerancia, derivada);
+                            error = Math.Abs((raiz - anterior3) / raiz);
+                        }
+                        else
+                        {
+                            nuevaSalida.Mensaje = "División por cero";
+                            return nuevaSalida;
+                        }
                     }
-                    error = Math.Abs((raiz - anterior) / raiz);
+                    nuevaSalida.RaizEncontrada = raiz;
+                    nuevaSalida.IteracionesRealizadas = iteraciones;
+                    nuevaSalida.ErrorRelativo = error;
+                    if (anterior1==anterior3 && anterior2==raiz)
+                    {
+                        nuevaSalida.Mensaje = "Bucle por mínimo, máximo o punto de inflexión";
+                    }
                 }
-                nuevaSalida.RaizEncontrada = raiz;
-                nuevaSalida.IteracionesRealizadas = iteraciones;
-                nuevaSalida.ErrorRelativo = error;
+                else
+                {
+                    nuevaSalida.Mensaje = "División por cero";
+                    return nuevaSalida;
+                }
             }
             return nuevaSalida;
         }
 
-        public double ObtenerRaizMetodoNewtonRaphson(double xi, double tolerancia)
+        public Salida ObtenerRaizMetodoSecante(int maxiteraciones, double tolerancia, double xi)
         {
-            return xi-(EvaluarFuncion(xi)/((EvaluarFuncion(xi+tolerancia)-EvaluarFuncion(xi))/tolerancia));
+            Salida nuevaSalida = new Salida();
+            if (Math.Abs(EvaluarFuncion(xi)) < tolerancia)
+            {
+                nuevaSalida.RaizEncontrada = xi;
+            }
+            else
+            {
+                int iteraciones = 0;
+                double anterior = 0;
+                iteraciones++;
+                double denominador = EvaluarFuncion(xi + 1) - EvaluarFuncion(xi);
+                if (denominador > 0)
+                {
+                    double raiz = 0;
+                    raiz = ObtenerRaizMetodoSecante(xi, denominador);
+                    double error = Math.Abs((raiz - anterior) / raiz);
+                    while (!(Math.Abs(EvaluarFuncion(raiz)) < tolerancia || error < tolerancia || iteraciones >= maxiteraciones))
+                    {
+                        xi = raiz;
+                        anterior = raiz;
+                        iteraciones++;
+                        denominador = EvaluarFuncion(xi + 1) - EvaluarFuncion(xi);
+                        if (denominador > 0)
+                        {
+                            raiz = 0;
+                            raiz = ObtenerRaizMetodoSecante(xi, denominador);
+                            error = Math.Abs((raiz - anterior) / raiz);
+                        }
+                        else
+                        {
+                            nuevaSalida.Mensaje = "División por cero";
+                            return nuevaSalida;
+                        }
+                    }
+                    nuevaSalida.RaizEncontrada = raiz;
+                    nuevaSalida.IteracionesRealizadas = iteraciones;
+                    nuevaSalida.ErrorRelativo = error;
+                }
+                else
+                {
+                    nuevaSalida.Mensaje = "División por cero";
+                    return nuevaSalida;
+                }
+            }
+            return nuevaSalida;
         }
 
-        public double ObtenerRaizMetodoSecante(double xi)
+        public double ObtenerRaizMetodoNewtonRaphson(double xi, double tolerancia, double derivada)
         {
-            return (EvaluarFuncion(xi+1)*xi-EvaluarFuncion(xi)*(xi+1))/(EvaluarFuncion(xi+1)-EvaluarFuncion(xi));
+            return xi-(EvaluarFuncion(xi)/derivada);
+        }
+
+        public double ObtenerRaizMetodoSecante(double xi, double denominador)
+        {
+            return (EvaluarFuncion(xi + 1) * xi - EvaluarFuncion(xi) * (xi + 1)) / denominador;
         }
 
 
