@@ -37,7 +37,15 @@ namespace TP_Analisis_Numerico
                 {
                     lblIteraciones_Biseccion.Text = $"{resultado.IteracionesRealizadas}";
                     lblErrorRelativo_Biseccion.Text = $"{resultado.ErrorRelativo}";
-                    lblSolucionRaiz_Biseccion.Text = $"{resultado.RaizEncontrada}";
+                    lblSolucionRaiz_Biseccion.Text = $"{Math.Round(resultado.RaizEncontrada, 4)}";
+                }
+                if (resultado.IteracionesRealizadas>=100)
+                {
+                    lblConverge_Biseccion.Text = "NO";
+                }
+                else
+                {
+                    lblConverge_Biseccion.Text = "SI";
                 }
             }
         }
@@ -57,7 +65,15 @@ namespace TP_Analisis_Numerico
                 {
                     lblIteraciones_RF.Text = $"{resultado.IteracionesRealizadas}";
                     lblErrorRelativo_RF.Text = $"{resultado.ErrorRelativo}";
-                    lblSolucionRaiz_RF.Text = $"{resultado.RaizEncontrada}";
+                    lblSolucionRaiz_RF.Text = $"{Math.Round(resultado.RaizEncontrada,4)}";
+                }
+                if (resultado.IteracionesRealizadas >= 100)
+                {
+                    lblConverge_RF.Text = "NO";
+                }
+                else
+                {
+                    lblConverge_RF.Text = "SI";
                 }
             }
         }
@@ -69,9 +85,19 @@ namespace TP_Analisis_Numerico
                 Salida resultado = Logica.ObtenerRaizMetodoNewtonRaphson(int.Parse(tbxMaxIteraciones.Text), double.Parse(tbxTolerancia.Text), double.Parse(tbxPuntoInicial.Text));
                 lblIteraciones_NR.Text = $"{resultado.IteracionesRealizadas}";
                 lblErrorRelativo_NR.Text = $"{resultado.ErrorRelativo}";
-                lblSolucionRaiz_NR.Text = $"{resultado.RaizEncontrada}";
+                lblSolucionRaiz_NR.Text = $"{Math.Round(resultado.RaizEncontrada, 4)}";
                 lblMensaje_NR.Text = $"{resultado.Mensaje}";
+
+                if (resultado.IteracionesRealizadas >= 100 || lblMensaje_NR.Text!="")
+                {
+                    lblConverge_NR.Text = "NO";
+                }
+                else
+                {
+                    lblConverge_NR.Text = "SI";
+                }
             }
+
         }
 
         private void btnObtener_Secante_Click(object sender, EventArgs e)
@@ -81,8 +107,17 @@ namespace TP_Analisis_Numerico
                 Salida resultado = Logica.ObtenerRaizMetodoSecante(int.Parse(tbxMaxIteraciones.Text), double.Parse(tbxTolerancia.Text), double.Parse(tbxPuntoInicial.Text));
                 lblIteraciones_Secante.Text = $"{resultado.IteracionesRealizadas}";
                 lblErrorRelativo_Secante.Text = $"{resultado.ErrorRelativo}";
-                lblSolucionRaiz_Secante.Text = $"{resultado.RaizEncontrada}";
+                lblSolucionRaiz_Secante.Text = $"{Math.Round(resultado.RaizEncontrada, 4)}";
                 lblMensaje_Secante.Text = $"{resultado.Mensaje}";
+
+                if (resultado.IteracionesRealizadas >= 100 || lblMensaje_Secante.Text != "")
+                {
+                    lblConverge_Secante.Text = "NO";
+                }
+                else
+                {
+                    lblConverge_Secante.Text = "SI";
+                }
             }
         }
 

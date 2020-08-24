@@ -11,7 +11,7 @@ namespace Unidad_1
         //Evaluar funcion
         private double EvaluarFuncion(double x)
         {
-            return Math.Pow(x,2)-3;
+            return Math.Pow(x,2)-4;
         }
 
         //Metodos cerrados

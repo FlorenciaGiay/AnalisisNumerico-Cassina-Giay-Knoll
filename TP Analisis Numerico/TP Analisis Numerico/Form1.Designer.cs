@@ -88,6 +88,14 @@
             this.lblTolerancia = new System.Windows.Forms.Label();
             this.lblFuncion = new System.Windows.Forms.Label();
             this.tabUnidad2 = new System.Windows.Forms.TabPage();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lblConverge_Biseccion = new System.Windows.Forms.Label();
+            this.lblConverge_RF = new System.Windows.Forms.Label();
+            this.lblconv = new System.Windows.Forms.Label();
+            this.lblConverge_NR = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.lblConverge_Secante = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabUnidad1.SuspendLayout();
             this.tabControl2.SuspendLayout();
@@ -182,6 +190,8 @@
             // 
             // tituloSalida
             // 
+            this.tituloSalida.Controls.Add(this.lblConverge_Biseccion);
+            this.tituloSalida.Controls.Add(this.label3);
             this.tituloSalida.Controls.Add(this.btnObtener_Biseccion);
             this.tituloSalida.Controls.Add(this.lblIteraciones_Biseccion);
             this.tituloSalida.Controls.Add(this.lblErrorRelativo_Biseccion);
@@ -273,6 +283,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lblConverge_RF);
+            this.groupBox1.Controls.Add(this.lblconv);
             this.groupBox1.Controls.Add(this.btnObtener_RF);
             this.groupBox1.Controls.Add(this.lblIteraciones_RF);
             this.groupBox1.Controls.Add(this.lblErrorRelativo_RF);
@@ -363,6 +375,8 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.lblConverge_NR);
+            this.groupBox2.Controls.Add(this.label9);
             this.groupBox2.Controls.Add(this.lblMensaje_NR);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.btnObtener_NR);
@@ -473,6 +487,8 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.lblConverge_Secante);
+            this.groupBox3.Controls.Add(this.label10);
             this.groupBox3.Controls.Add(this.lblMensaje_Secante);
             this.groupBox3.Controls.Add(this.label4);
             this.groupBox3.Controls.Add(this.btnObtener_Secante);
@@ -700,6 +716,78 @@
             this.tabUnidad2.Text = "Unidad 2";
             this.tabUnidad2.UseVisualStyleBackColor = true;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(322, 85);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(62, 13);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Converge =";
+            // 
+            // lblConverge_Biseccion
+            // 
+            this.lblConverge_Biseccion.AutoSize = true;
+            this.lblConverge_Biseccion.Location = new System.Drawing.Point(390, 86);
+            this.lblConverge_Biseccion.Name = "lblConverge_Biseccion";
+            this.lblConverge_Biseccion.Size = new System.Drawing.Size(13, 13);
+            this.lblConverge_Biseccion.TabIndex = 8;
+            this.lblConverge_Biseccion.Text = "--";
+            // 
+            // lblConverge_RF
+            // 
+            this.lblConverge_RF.AutoSize = true;
+            this.lblConverge_RF.Location = new System.Drawing.Point(387, 87);
+            this.lblConverge_RF.Name = "lblConverge_RF";
+            this.lblConverge_RF.Size = new System.Drawing.Size(13, 13);
+            this.lblConverge_RF.TabIndex = 10;
+            this.lblConverge_RF.Text = "--";
+            // 
+            // lblconv
+            // 
+            this.lblconv.AutoSize = true;
+            this.lblconv.Location = new System.Drawing.Point(319, 86);
+            this.lblconv.Name = "lblconv";
+            this.lblconv.Size = new System.Drawing.Size(62, 13);
+            this.lblconv.TabIndex = 9;
+            this.lblconv.Text = "Converge =";
+            // 
+            // lblConverge_NR
+            // 
+            this.lblConverge_NR.AutoSize = true;
+            this.lblConverge_NR.Location = new System.Drawing.Point(399, 87);
+            this.lblConverge_NR.Name = "lblConverge_NR";
+            this.lblConverge_NR.Size = new System.Drawing.Size(13, 13);
+            this.lblConverge_NR.TabIndex = 12;
+            this.lblConverge_NR.Text = "--";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(331, 86);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(62, 13);
+            this.label9.TabIndex = 11;
+            this.label9.Text = "Converge =";
+            // 
+            // lblConverge_Secante
+            // 
+            this.lblConverge_Secante.AutoSize = true;
+            this.lblConverge_Secante.Location = new System.Drawing.Point(404, 87);
+            this.lblConverge_Secante.Name = "lblConverge_Secante";
+            this.lblConverge_Secante.Size = new System.Drawing.Size(13, 13);
+            this.lblConverge_Secante.TabIndex = 12;
+            this.lblConverge_Secante.Text = "--";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(336, 86);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(62, 13);
+            this.label10.TabIndex = 11;
+            this.label10.Text = "Converge =";
+            // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -794,6 +882,14 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblMensaje_Secante;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblConverge_Biseccion;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblConverge_RF;
+        private System.Windows.Forms.Label lblconv;
+        private System.Windows.Forms.Label lblConverge_NR;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label lblConverge_Secante;
+        private System.Windows.Forms.Label label10;
     }
 }
 
