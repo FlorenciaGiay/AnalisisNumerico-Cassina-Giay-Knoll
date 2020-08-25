@@ -11,7 +11,8 @@ namespace Unidad_1
         //Evaluar funcion
         private double EvaluarFuncion(double x)
         {
-            return Math.Pow(x,2)-4;
+            double resultado = Math.Pow(x, 2) - 3 * x + Math.Log(1 + x) - 5 + Math.Sqrt(x);
+            return resultado;
         }
 
         //Metodos cerrados
@@ -105,8 +106,9 @@ namespace Unidad_1
                 double anterior2 = 0;
                 double anterior3 = 0;
                 iteraciones++;
-                double derivada = (EvaluarFuncion(xi + tolerancia) - EvaluarFuncion(xi)) / tolerancia;
-                if (derivada>0)
+                double suma = xi + tolerancia;
+                double derivada = (EvaluarFuncion(suma) - EvaluarFuncion(xi)) / tolerancia;
+                if (derivada!=0)
                 {
                     double raiz = ObtenerRaizMetodoNewtonRaphson(xi, tolerancia, derivada);
                     double error = Math.Abs((raiz - anterior3) / raiz);
@@ -117,15 +119,17 @@ namespace Unidad_1
                         anterior2 = anterior3;
                         anterior3 = raiz;
                         iteraciones++;
-                        derivada = 1;
-                        derivada = (EvaluarFuncion(xi + tolerancia) - EvaluarFuncion(xi)) / tolerancia;
-                        if (derivada>0)
+                        derivada = 0;
+                        suma = xi + tolerancia;
+                        derivada = (EvaluarFuncion(suma) - EvaluarFuncion(xi)) / tolerancia;
+                        if (derivada!=0)
                         {
                             raiz = ObtenerRaizMetodoNewtonRaphson(xi, tolerancia, derivada);
                             error = Math.Abs((raiz - anterior3) / raiz);
                         }
                         else
                         {
+                            nuevaSalida.IteracionesRealizadas = iteraciones;
                             nuevaSalida.Mensaje = "División por cero";
                             return nuevaSalida;
                         }
@@ -137,9 +141,14 @@ namespace Unidad_1
                     {
                         nuevaSalida.Mensaje = "Bucle por mínimo, máximo o punto de inflexión";
                     }
+                    else if (iteraciones>=maxiteraciones)
+                    {
+                        nuevaSalida.Mensaje = "Superó el máximo de iteraciones";
+                    }
                 }
                 else
                 {
+                    nuevaSalida.IteracionesRealizadas = iteraciones;
                     nuevaSalida.Mensaje = "División por cero";
                     return nuevaSalida;
                 }
@@ -160,7 +169,7 @@ namespace Unidad_1
                 double anterior = 0;
                 iteraciones++;
                 double denominador = EvaluarFuncion(xi + 1) - EvaluarFuncion(xi);
-                if (denominador > 0)
+                if (denominador != 0)
                 {
                     double raiz = 0;
                     raiz = ObtenerRaizMetodoSecante(xi, denominador);
@@ -171,7 +180,7 @@ namespace Unidad_1
                         anterior = raiz;
                         iteraciones++;
                         denominador = EvaluarFuncion(xi + 1) - EvaluarFuncion(xi);
-                        if (denominador > 0)
+                        if (denominador != 0)
                         {
                             raiz = 0;
                             raiz = ObtenerRaizMetodoSecante(xi, denominador);
@@ -179,6 +188,7 @@ namespace Unidad_1
                         }
                         else
                         {
+                            nuevaSalida.IteracionesRealizadas = iteraciones;
                             nuevaSalida.Mensaje = "División por cero";
                             return nuevaSalida;
                         }
@@ -189,6 +199,7 @@ namespace Unidad_1
                 }
                 else
                 {
+                    nuevaSalida.IteracionesRealizadas = iteraciones;
                     nuevaSalida.Mensaje = "División por cero";
                     return nuevaSalida;
                 }

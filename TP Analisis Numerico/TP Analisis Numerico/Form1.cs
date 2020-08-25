@@ -38,15 +38,16 @@ namespace TP_Analisis_Numerico
                     lblIteraciones_Biseccion.Text = $"{resultado.IteracionesRealizadas}";
                     lblErrorRelativo_Biseccion.Text = $"{resultado.ErrorRelativo}";
                     lblSolucionRaiz_Biseccion.Text = $"{Math.Round(resultado.RaizEncontrada, 4)}";
+                    if (resultado.IteracionesRealizadas >= int.Parse(tbxMaxIteraciones.Text))
+                    {
+                        lblConverge_Biseccion.Text = "NO";
+                    }
+                    else
+                    {
+                        lblConverge_Biseccion.Text = "SI";
+                    }
                 }
-                if (resultado.IteracionesRealizadas>=int.Parse(tbxMaxIteraciones.Text))
-                {
-                    lblConverge_Biseccion.Text = "NO";
-                }
-                else
-                {
-                    lblConverge_Biseccion.Text = "SI";
-                }
+                
             }
         }
 
@@ -66,15 +67,16 @@ namespace TP_Analisis_Numerico
                     lblIteraciones_RF.Text = $"{resultado.IteracionesRealizadas}";
                     lblErrorRelativo_RF.Text = $"{resultado.ErrorRelativo}";
                     lblSolucionRaiz_RF.Text = $"{Math.Round(resultado.RaizEncontrada,4)}";
+                    if (resultado.IteracionesRealizadas >= int.Parse(tbxMaxIteraciones.Text))
+                    {
+                        lblConverge_RF.Text = "NO";
+                    }
+                    else
+                    {
+                        lblConverge_RF.Text = "SI";
+                    }
                 }
-                if (resultado.IteracionesRealizadas >= int.Parse(tbxMaxIteraciones.Text))
-                {
-                    lblConverge_RF.Text = "NO";
-                }
-                else
-                {
-                    lblConverge_RF.Text = "SI";
-                }
+                
             }
         }
 
