@@ -39,7 +39,7 @@ namespace TP_Analisis_Numerico
                     lblErrorRelativo_Biseccion.Text = $"{resultado.ErrorRelativo}";
                     lblSolucionRaiz_Biseccion.Text = $"{Math.Round(resultado.RaizEncontrada, 4)}";
                 }
-                if (resultado.IteracionesRealizadas>=100)
+                if (resultado.IteracionesRealizadas>=int.Parse(tbxMaxIteraciones.Text))
                 {
                     lblConverge_Biseccion.Text = "NO";
                 }
@@ -67,7 +67,7 @@ namespace TP_Analisis_Numerico
                     lblErrorRelativo_RF.Text = $"{resultado.ErrorRelativo}";
                     lblSolucionRaiz_RF.Text = $"{Math.Round(resultado.RaizEncontrada,4)}";
                 }
-                if (resultado.IteracionesRealizadas >= 100)
+                if (resultado.IteracionesRealizadas >= int.Parse(tbxMaxIteraciones.Text))
                 {
                     lblConverge_RF.Text = "NO";
                 }
@@ -88,7 +88,7 @@ namespace TP_Analisis_Numerico
                 lblSolucionRaiz_NR.Text = $"{Math.Round(resultado.RaizEncontrada, 4)}";
                 lblMensaje_NR.Text = $"{resultado.Mensaje}";
 
-                if (resultado.IteracionesRealizadas >= 100 || lblMensaje_NR.Text!="")
+                if (resultado.IteracionesRealizadas >= int.Parse(tbxMaxIteraciones.Text) || lblMensaje_NR.Text!="")
                 {
                     lblConverge_NR.Text = "NO";
                 }
@@ -110,7 +110,7 @@ namespace TP_Analisis_Numerico
                 lblSolucionRaiz_Secante.Text = $"{Math.Round(resultado.RaizEncontrada, 4)}";
                 lblMensaje_Secante.Text = $"{resultado.Mensaje}";
 
-                if (resultado.IteracionesRealizadas >= 100 || lblMensaje_Secante.Text != "")
+                if (resultado.IteracionesRealizadas >= int.Parse(tbxMaxIteraciones.Text) || lblMensaje_Secante.Text != "")
                 {
                     lblConverge_Secante.Text = "NO";
                 }
