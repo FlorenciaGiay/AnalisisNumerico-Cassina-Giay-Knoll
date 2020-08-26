@@ -83,6 +83,7 @@
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.tituloEntrada = new System.Windows.Forms.GroupBox();
+            this.lblX2 = new System.Windows.Forms.Label();
             this.lblPuntoInicial = new System.Windows.Forms.Label();
             this.tbxPuntoInicial = new System.Windows.Forms.TextBox();
             this.tbxLD = new System.Windows.Forms.TextBox();
@@ -96,6 +97,7 @@
             this.lblTolerancia = new System.Windows.Forms.Label();
             this.lblFuncion = new System.Windows.Forms.Label();
             this.tabUnidad2 = new System.Windows.Forms.TabPage();
+            this.tbxX2 = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabUnidad1.SuspendLayout();
             this.tabControl2.SuspendLayout();
@@ -661,6 +663,8 @@
             // 
             // tituloEntrada
             // 
+            this.tituloEntrada.Controls.Add(this.tbxX2);
+            this.tituloEntrada.Controls.Add(this.lblX2);
             this.tituloEntrada.Controls.Add(this.lblPuntoInicial);
             this.tituloEntrada.Controls.Add(this.tbxPuntoInicial);
             this.tituloEntrada.Controls.Add(this.tbxLD);
@@ -679,6 +683,16 @@
             this.tituloEntrada.TabIndex = 0;
             this.tituloEntrada.TabStop = false;
             this.tituloEntrada.Text = "Datos de Entrada:";
+            // 
+            // lblX2
+            // 
+            this.lblX2.AutoSize = true;
+            this.lblX2.Location = new System.Drawing.Point(533, 86);
+            this.lblX2.Name = "lblX2";
+            this.lblX2.Size = new System.Drawing.Size(36, 13);
+            this.lblX2.TabIndex = 12;
+            this.lblX2.Text = "Xini2: ";
+            this.lblX2.Visible = false;
             // 
             // lblPuntoInicial
             // 
@@ -788,6 +802,14 @@
             this.tabUnidad2.Text = "Unidad 2";
             this.tabUnidad2.UseVisualStyleBackColor = true;
             // 
+            // tbxX2
+            // 
+            this.tbxX2.Location = new System.Drawing.Point(604, 83);
+            this.tbxX2.Name = "tbxX2";
+            this.tbxX2.Size = new System.Drawing.Size(100, 20);
+            this.tbxX2.TabIndex = 13;
+            this.tbxX2.Visible = false;
+            // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -890,6 +912,8 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label lblConverge_Secante;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label lblX2;
+        private System.Windows.Forms.TextBox tbxX2;
     }
 }
 

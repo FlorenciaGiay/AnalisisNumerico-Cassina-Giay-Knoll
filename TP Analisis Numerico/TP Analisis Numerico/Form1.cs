@@ -104,9 +104,9 @@ namespace TP_Analisis_Numerico
 
         private void btnObtener_Secante_Click(object sender, EventArgs e)
         {
-            if (tbxFuncion.Text != "" && tbxTolerancia.Text != "" && tbxMaxIteraciones.Text != "" && tbxPuntoInicial.Text != "")
+            if (tbxFuncion.Text != "" && tbxTolerancia.Text != "" && tbxMaxIteraciones.Text != "" && tbxPuntoInicial.Text != "" && tbxX2.Text != "")
             {
-                Salida resultado = Logica.ObtenerRaizMetodoSecante(int.Parse(tbxMaxIteraciones.Text), double.Parse(tbxTolerancia.Text), double.Parse(tbxPuntoInicial.Text));
+                Salida resultado = Logica.ObtenerRaizMetodoSecante(int.Parse(tbxMaxIteraciones.Text), double.Parse(tbxTolerancia.Text), double.Parse(tbxPuntoInicial.Text), double.Parse(tbxX2.Text));
                 lblIteraciones_Secante.Text = $"{resultado.IteracionesRealizadas}";
                 lblErrorRelativo_Secante.Text = $"{resultado.ErrorRelativo}";
                 lblSolucionRaiz_Secante.Text = $"{Math.Round(resultado.RaizEncontrada, 4)}";
@@ -133,6 +133,16 @@ namespace TP_Analisis_Numerico
                 tbxLD.Visible = false;
                 lblPuntoInicial.Visible = true;
                 tbxPuntoInicial.Visible = true;
+                if (tabMetodos.SelectedTab.Name == "tabSecante")
+                {
+                    lblX2.Visible = true;
+                    tbxX2.Visible = true;
+                }
+                else
+                {
+                    lblX2.Visible = false;
+                    tbxX2.Visible = false;
+                }
             }
             else
             {
@@ -142,6 +152,8 @@ namespace TP_Analisis_Numerico
                 tbxLD.Visible = true;
                 lblPuntoInicial.Visible = false;
                 tbxPuntoInicial.Visible = false;
+                lblX2.Visible = false;
+                tbxX2.Visible = false;
             }
         }
 

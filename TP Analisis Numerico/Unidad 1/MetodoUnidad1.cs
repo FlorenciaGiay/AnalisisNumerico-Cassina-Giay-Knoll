@@ -11,7 +11,7 @@ namespace Unidad_1
         //Evaluar funcion
         private double EvaluarFuncion(double x)
         {
-            double resultado = Math.Pow(x, 2) - 3 * x + Math.Log(1 + x) - 5 + Math.Sqrt(x);
+            double resultado = Math.Log(x)+(1/x)-3;
             return resultado;
         }
 
@@ -156,7 +156,7 @@ namespace Unidad_1
             return nuevaSalida;
         }
 
-        public Salida ObtenerRaizMetodoSecante(int maxiteraciones, double tolerancia, double xi)
+        public Salida ObtenerRaizMetodoSecante(int maxiteraciones, double tolerancia, double xi, double x2)
         {
             Salida nuevaSalida = new Salida();
             if (Math.Abs(EvaluarFuncion(xi)) < tolerancia)
@@ -168,22 +168,23 @@ namespace Unidad_1
                 int iteraciones = 0;
                 double anterior = 0;
                 iteraciones++;
-                double denominador = EvaluarFuncion(xi + 1) - EvaluarFuncion(xi);
+                double denominador = EvaluarFuncion(x2) - EvaluarFuncion(xi);
                 if (denominador != 0)
                 {
                     double raiz = 0;
-                    raiz = ObtenerRaizMetodoSecante(xi, denominador);
+                    raiz = ObtenerRaizMetodoSecante(xi, denominador, x2);
                     double error = Math.Abs((raiz - anterior) / raiz);
                     while (!(Math.Abs(EvaluarFuncion(raiz)) < tolerancia || error < tolerancia || iteraciones >= maxiteraciones))
                     {
-                        xi = raiz;
+                        xi = x2;
+                        x2 = raiz;
                         anterior = raiz;
                         iteraciones++;
-                        denominador = EvaluarFuncion(xi + 1) - EvaluarFuncion(xi);
+                        denominador = EvaluarFuncion(x2) - EvaluarFuncion(xi);
                         if (denominador != 0)
                         {
                             raiz = 0;
-                            raiz = ObtenerRaizMetodoSecante(xi, denominador);
+                            raiz = ObtenerRaizMetodoSecante(xi, denominador, x2);
                             error = Math.Abs((raiz - anterior) / raiz);
                         }
                         else
@@ -212,9 +213,9 @@ namespace Unidad_1
             return xi-(EvaluarFuncion(xi)/derivada);
         }
 
-        public double ObtenerRaizMetodoSecante(double xi, double denominador)
+        public double ObtenerRaizMetodoSecante(double xi, double denominador, double x2)
         {
-            return (EvaluarFuncion(xi + 1) * xi - EvaluarFuncion(xi) * (xi + 1)) / denominador;
+            return (EvaluarFuncion(x2) * xi - EvaluarFuncion(xi) * (x2)) / denominador;
         }
 
 
