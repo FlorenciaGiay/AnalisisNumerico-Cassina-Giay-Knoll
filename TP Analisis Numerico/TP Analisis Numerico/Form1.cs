@@ -13,6 +13,7 @@ namespace TP_Analisis_Numerico
 {
     public partial class FormPrincipal : Form
     {
+        // UNIDAD 1
         private MetodoUnidad1 Logica;
         public FormPrincipal()
         {
@@ -156,6 +157,36 @@ namespace TP_Analisis_Numerico
                 tbxX2.Visible = false;
             }
         }
+        //UNIDAD 2
+        private void btnGenerarMatriz_Click(object sender, EventArgs e)
+        {
+            int dimension = int.Parse(tbxDimension.Text);
+            int puntoX = 30;
+            int puntoY = 30;
+            panelMatriz.Controls.Clear();
+            for (int i = 0; i < dimension + 1; i++)
+            {
+                for (int j = 0; j < dimension  ; j++)
+                {
+                    string nombre = "(" + i.ToString() + "," + j.ToString() + ")";
+                    TextBox elemento = new TextBox();
+                    elemento.Name = nombre;
+                    elemento.Location = new Point(puntoX, puntoY);
+                    elemento.Size = new Size(65, 55);
+                    elemento.Font = new Font(elemento.Font.Name, 13, elemento.Font.Style, elemento.Font.Unit);
+                    if (i==dimension)
+                    {
+                        elemento.BackColor = Color.LightSkyBlue;
+                    }
+                    panelMatriz.Controls.Add(elemento);
+                    panelMatriz.Show();
+                    puntoY += 35;
+                }
+                puntoX += 70;
+                puntoY = 30;
+            }
+        }
 
+     
     }
 }

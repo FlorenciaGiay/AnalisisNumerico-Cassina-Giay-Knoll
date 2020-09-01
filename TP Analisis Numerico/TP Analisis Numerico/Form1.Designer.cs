@@ -83,6 +83,7 @@
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.tituloEntrada = new System.Windows.Forms.GroupBox();
+            this.tbxX2 = new System.Windows.Forms.TextBox();
             this.lblX2 = new System.Windows.Forms.Label();
             this.lblPuntoInicial = new System.Windows.Forms.Label();
             this.tbxPuntoInicial = new System.Windows.Forms.TextBox();
@@ -97,7 +98,13 @@
             this.lblTolerancia = new System.Windows.Forms.Label();
             this.lblFuncion = new System.Windows.Forms.Label();
             this.tabUnidad2 = new System.Windows.Forms.TabPage();
-            this.tbxX2 = new System.Windows.Forms.TextBox();
+            this.panelMatriz = new System.Windows.Forms.Panel();
+            this.btnCalcular = new System.Windows.Forms.Button();
+            this.btnGenerarMatriz = new System.Windows.Forms.Button();
+            this.tbxDimension = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.cbxMetodo = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabUnidad1.SuspendLayout();
             this.tabControl2.SuspendLayout();
@@ -112,6 +119,7 @@
             this.tabSecante.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.tituloEntrada.SuspendLayout();
+            this.tabUnidad2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -121,7 +129,7 @@
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(824, 445);
+            this.tabControl1.Size = new System.Drawing.Size(973, 511);
             this.tabControl1.TabIndex = 0;
             // 
             // tabUnidad1
@@ -130,7 +138,7 @@
             this.tabUnidad1.Location = new System.Drawing.Point(4, 22);
             this.tabUnidad1.Name = "tabUnidad1";
             this.tabUnidad1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabUnidad1.Size = new System.Drawing.Size(816, 419);
+            this.tabUnidad1.Size = new System.Drawing.Size(965, 485);
             this.tabUnidad1.TabIndex = 0;
             this.tabUnidad1.Text = "Unidad 1";
             this.tabUnidad1.UseVisualStyleBackColor = true;
@@ -684,6 +692,14 @@
             this.tituloEntrada.TabStop = false;
             this.tituloEntrada.Text = "Datos de Entrada:";
             // 
+            // tbxX2
+            // 
+            this.tbxX2.Location = new System.Drawing.Point(604, 83);
+            this.tbxX2.Name = "tbxX2";
+            this.tbxX2.Size = new System.Drawing.Size(100, 20);
+            this.tbxX2.TabIndex = 13;
+            this.tbxX2.Visible = false;
+            // 
             // lblX2
             // 
             this.lblX2.AutoSize = true;
@@ -794,27 +810,89 @@
             // 
             // tabUnidad2
             // 
+            this.tabUnidad2.Controls.Add(this.panelMatriz);
+            this.tabUnidad2.Controls.Add(this.btnCalcular);
+            this.tabUnidad2.Controls.Add(this.btnGenerarMatriz);
+            this.tabUnidad2.Controls.Add(this.tbxDimension);
+            this.tabUnidad2.Controls.Add(this.label14);
+            this.tabUnidad2.Controls.Add(this.cbxMetodo);
+            this.tabUnidad2.Controls.Add(this.label8);
             this.tabUnidad2.Location = new System.Drawing.Point(4, 22);
             this.tabUnidad2.Name = "tabUnidad2";
             this.tabUnidad2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabUnidad2.Size = new System.Drawing.Size(816, 419);
+            this.tabUnidad2.Size = new System.Drawing.Size(965, 485);
             this.tabUnidad2.TabIndex = 1;
             this.tabUnidad2.Text = "Unidad 2";
             this.tabUnidad2.UseVisualStyleBackColor = true;
             // 
-            // tbxX2
+            // panelMatriz
             // 
-            this.tbxX2.Location = new System.Drawing.Point(604, 83);
-            this.tbxX2.Name = "tbxX2";
-            this.tbxX2.Size = new System.Drawing.Size(100, 20);
-            this.tbxX2.TabIndex = 13;
-            this.tbxX2.Visible = false;
+            this.panelMatriz.AutoSize = true;
+            this.panelMatriz.Location = new System.Drawing.Point(45, 60);
+            this.panelMatriz.Name = "panelMatriz";
+            this.panelMatriz.Size = new System.Drawing.Size(775, 408);
+            this.panelMatriz.TabIndex = 7;
+            // 
+            // btnCalcular
+            // 
+            this.btnCalcular.Location = new System.Drawing.Point(854, 15);
+            this.btnCalcular.Name = "btnCalcular";
+            this.btnCalcular.Size = new System.Drawing.Size(93, 40);
+            this.btnCalcular.TabIndex = 6;
+            this.btnCalcular.Text = "CALCULAR";
+            this.btnCalcular.UseVisualStyleBackColor = true;
+            // 
+            // btnGenerarMatriz
+            // 
+            this.btnGenerarMatriz.Location = new System.Drawing.Point(467, 15);
+            this.btnGenerarMatriz.Name = "btnGenerarMatriz";
+            this.btnGenerarMatriz.Size = new System.Drawing.Size(138, 23);
+            this.btnGenerarMatriz.TabIndex = 5;
+            this.btnGenerarMatriz.Text = "GENERAR MATRIZ";
+            this.btnGenerarMatriz.UseVisualStyleBackColor = true;
+            this.btnGenerarMatriz.Click += new System.EventHandler(this.btnGenerarMatriz_Click);
+            // 
+            // tbxDimension
+            // 
+            this.tbxDimension.Location = new System.Drawing.Point(325, 16);
+            this.tbxDimension.Name = "tbxDimension";
+            this.tbxDimension.Size = new System.Drawing.Size(100, 20);
+            this.tbxDimension.TabIndex = 4;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(260, 20);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(59, 13);
+            this.label14.TabIndex = 3;
+            this.label14.Text = "Dimensión:";
+            // 
+            // cbxMetodo
+            // 
+            this.cbxMetodo.FormattingEnabled = true;
+            this.cbxMetodo.Items.AddRange(new object[] {
+            "Gauss Jordan",
+            "Otro metodo"});
+            this.cbxMetodo.Location = new System.Drawing.Point(79, 15);
+            this.cbxMetodo.Name = "cbxMetodo";
+            this.cbxMetodo.Size = new System.Drawing.Size(121, 21);
+            this.cbxMetodo.TabIndex = 2;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(27, 23);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(46, 13);
+            this.label8.TabIndex = 1;
+            this.label8.Text = "Método:";
             // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(869, 459);
+            this.ClientSize = new System.Drawing.Size(997, 535);
             this.Controls.Add(this.tabControl1);
             this.Name = "FormPrincipal";
             this.Text = "Métodos Numéricos";
@@ -838,6 +916,8 @@
             this.groupBox3.PerformLayout();
             this.tituloEntrada.ResumeLayout(false);
             this.tituloEntrada.PerformLayout();
+            this.tabUnidad2.ResumeLayout(false);
+            this.tabUnidad2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -914,6 +994,13 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label lblX2;
         private System.Windows.Forms.TextBox tbxX2;
+        private System.Windows.Forms.Button btnGenerarMatriz;
+        private System.Windows.Forms.TextBox tbxDimension;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.ComboBox cbxMetodo;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button btnCalcular;
+        private System.Windows.Forms.Panel panelMatriz;
     }
 }
 
