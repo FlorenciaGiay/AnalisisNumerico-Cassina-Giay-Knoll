@@ -168,7 +168,7 @@ namespace TP_Analisis_Numerico
             {
                 for (int j = 0; j < dimension  ; j++)
                 {
-                    string nombre = "(" + i.ToString() + "," + j.ToString() + ")";
+                    string nombre = "(" + j.ToString() + "," + i.ToString() + ")";
                     TextBox elemento = new TextBox();
                     elemento.Name = nombre;
                     elemento.Location = new Point(puntoX, puntoY);
@@ -187,6 +187,25 @@ namespace TP_Analisis_Numerico
             }
         }
 
-     
+        public double[,] GuardarMatriz(int dimension)
+        {
+            double[,] matriz = new double[dimension, dimension + 1];
+            for (int i = 0; i < dimension; i++)
+            {
+                for (int j = 0; j < dimension+1; j++)
+                {
+
+                    Control tbx= panelMatriz.Controls.Find("(" + i.ToString() + "," + j.ToString() + ")", true).First();
+                    matriz[i, j] = double.Parse((tbx as TextBox).Text);
+                }
+            }
+            return matriz;
+        }
+
+        private void btnCalcular_Click(object sender, EventArgs e)
+        {
+            double[,] matriz = GuardarMatriz(int.Parse(tbxDimension.Text));
+            MessageBox.Show("Matriz cargada con exito");
+        }
     }
 }
