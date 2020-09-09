@@ -8,21 +8,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Unidad_1;
+using Unidad_2;
 
 namespace TP_Analisis_Numerico
 {
     public partial class FormPrincipal : Form
     {
-        // UNIDAD 1
         private MetodoUnidad1 Logica;
+        private MetodoUnidad2 Logica2;
         public FormPrincipal()
         {
             InitializeComponent();
             Logica = new MetodoUnidad1();
+            Logica2 = new MetodoUnidad2();
         }
-
-
-
+        
+        // UNIDAD 1
         private void btnObtener_Biseccion_Click(object sender, EventArgs e)
         {
             if (tbxFuncion.Text!="" && tbxTolerancia.Text != "" && tbxMaxIteraciones.Text != "" && tbxLI.Text != "" && tbxLD.Text != "")
@@ -157,6 +158,7 @@ namespace TP_Analisis_Numerico
                 tbxX2.Visible = false;
             }
         }
+        
         //UNIDAD 2
         private void btnGenerarMatriz_Click(object sender, EventArgs e)
         {
@@ -206,6 +208,9 @@ namespace TP_Analisis_Numerico
         {
             double[,] matriz = GuardarMatriz(int.Parse(tbxDimension.Text));
             MessageBox.Show("Matriz cargada con exito");
+            double[,] matrizpivoteada = Logica2.PivotearMatriz(matriz, int.Parse(tbxDimension.Text));
         }
+
+        
     }
 }
