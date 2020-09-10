@@ -874,7 +874,7 @@
             this.cbxMetodo.FormattingEnabled = true;
             this.cbxMetodo.Items.AddRange(new object[] {
             "Gauss Jordan",
-            "Otro metodo"});
+            "Gauss Seidel"});
             this.cbxMetodo.Location = new System.Drawing.Point(79, 15);
             this.cbxMetodo.Name = "cbxMetodo";
             this.cbxMetodo.Size = new System.Drawing.Size(121, 21);

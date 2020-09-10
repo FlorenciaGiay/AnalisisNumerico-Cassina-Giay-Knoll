@@ -8,31 +8,39 @@ namespace Unidad_2
 {
     public class MetodoUnidad2
     {
-        public double[,] PivotearMatriz(double[,] matriz, int dimension)
-        {
-            double valormayor = matriz[0, 0];
-            int indicemayor = 0;
-            for (int i = 0; i < dimension; i++)
+       public double[,] MetodoGaussJordan(int dimension, double[,] matriz)
+       {
+            for (int i = 0; i <= dimension-1; i++)
             {
-                if (i>0)
+                double coeficiente = matriz[i, i];
+                for (int j = 0; j <= dimension; j++)
                 {
-                    if (Math.Abs(matriz[i,0])>Math.Abs(valormayor))
+                    matriz[i, j] = matriz[i, j] / coeficiente;
+                }
+                for (int j = 0; j <= dimension-1; j++)
+                {
+                    if (i != j)
                     {
-                        valormayor = matriz[i, 0];
-                        indicemayor = i;
+                        coeficiente = matriz[j, i];
+                        for (int k = 0; k <= dimension; k++)
+                        {
+                            matriz[j, k] = matriz[j, k] - (coeficiente * matriz[i, k]);
+                        }
                     }
                 }
             }
-            if (indicemayor!=0)
+            /*
+            double[] vectorResultado = new double[dimension];
+            for (int i = 0; i < dimension; i++)
             {
-                for (int i = 0; i < dimension + 1; i++)
-                {
-                    double aux = matriz[0, i];
-                    matriz[0, i] = matriz[indicemayor, i];
-                    matriz[indicemayor, i] = aux;
-                }
-            }
+                vectorResultado[i] = matriz[i, dimension];
+            }*/
             return matriz;
+       }
+
+        public double[,] MetodoGaussSeidel()
+        {
+            return null;
         }
     }
 }

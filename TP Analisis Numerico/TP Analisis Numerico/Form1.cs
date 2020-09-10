@@ -206,9 +206,28 @@ namespace TP_Analisis_Numerico
 
         private void btnCalcular_Click(object sender, EventArgs e)
         {
-            double[,] matriz = GuardarMatriz(int.Parse(tbxDimension.Text));
+            int dimension = int.Parse(tbxDimension.Text);
+            double[,] matriz = GuardarMatriz(dimension);
             MessageBox.Show("Matriz cargada con exito");
-            double[,] matrizpivoteada = Logica2.PivotearMatriz(matriz, int.Parse(tbxDimension.Text));
+            double[,] matrizresultado = new double[dimension,dimension+1];
+            switch (cbxMetodo.SelectedIndex)
+            {
+                case 0:
+                    matrizresultado = Logica2.MetodoGaussJordan(dimension, matriz);
+                    for (int i = 0; i < dimension; i++)
+                    {
+                        for (int j = 0; j < dimension + 1; j++)
+                        {
+                            Control tbx = panelMatriz.Controls.Find("(" + i.ToString() + "," + j.ToString() + ")", true).First();
+                            tbx.Text = matrizresultado[i, j].ToString();
+                        }
+                    }
+                    break;
+                case 1:
+                    matrizresultado = Logica2.MetodoGaussSeidel();
+                    break;
+            }
+            
         }
 
         
