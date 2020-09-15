@@ -209,25 +209,29 @@ namespace TP_Analisis_Numerico
             int dimension = int.Parse(tbxDimension.Text);
             double[,] matriz = GuardarMatriz(dimension);
             MessageBox.Show("Matriz cargada con exito");
-            double[,] matrizresultado = new double[dimension,dimension+1];
+            double[] vectorResultado = new double[dimension];
             switch (cbxMetodo.SelectedIndex)
             {
                 case 0:
-                    matrizresultado = Logica2.MetodoGaussJordan(dimension, matriz);
-                    for (int i = 0; i < dimension; i++)
-                    {
-                        for (int j = 0; j < dimension + 1; j++)
-                        {
-                            Control tbx = panelMatriz.Controls.Find("(" + i.ToString() + "," + j.ToString() + ")", true).First();
-                            tbx.Text = matrizresultado[i, j].ToString();
-                        }
-                    }
+                    vectorResultado = Logica2.MetodoGaussJordan(dimension, matriz);
                     break;
                 case 1:
-                    matrizresultado = Logica2.MetodoGaussSeidel();
+                    vectorResultado = Logica2.MetodoGaussSeidel(matriz, dimension);
                     break;
             }
-            
+            string Resultados = "";
+            if (vectorResultado != null)
+            {
+                for (int i = 0; i < vectorResultado.Length; i++)
+                {
+                    Resultados += $"X{i + 1} = {Math.Round(vectorResultado[i], 4)}\n";
+                }
+            }
+            else
+            {
+                Resultados = "Se pasó de iteraciones/La diferencia es mayor a la tolerancia.";
+            }
+            MessageBox.Show(Resultados);
         }
 
         
