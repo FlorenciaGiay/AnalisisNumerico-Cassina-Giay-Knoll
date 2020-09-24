@@ -174,7 +174,7 @@ namespace TP_Analisis_Numerico
                     TextBox elemento = new TextBox();
                     elemento.Name = nombre;
                     elemento.Location = new Point(puntoX, puntoY);
-                    elemento.Size = new Size(65, 55);
+                    elemento.Size = new Size(100, 55);
                     elemento.Font = new Font(elemento.Font.Name, 13, elemento.Font.Style, elemento.Font.Unit);
                     if (i==dimension)
                     {
@@ -184,7 +184,7 @@ namespace TP_Analisis_Numerico
                     panelMatriz.Show();
                     puntoY += 35;
                 }
-                puntoX += 70;
+                puntoX += 105;
                 puntoY = 30;
             }
         }
@@ -224,7 +224,7 @@ namespace TP_Analisis_Numerico
             {
                 for (int i = 0; i < vectorResultado.Length; i++)
                 {
-                    Resultados += $"X{i + 1} = {Math.Round(vectorResultado[i], 4)}\n";
+                    Resultados += $"X{i + 1} = {vectorResultado[i]}\n";
                 }
             }
             else
