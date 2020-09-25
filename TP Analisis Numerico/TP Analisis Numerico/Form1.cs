@@ -229,7 +229,7 @@ namespace TP_Analisis_Numerico
             }
             else
             {
-                Resultados = "Se pasó de iteraciones/La diferencia es mayor a la tolerancia.";
+                Resultados = "Se pasó de iteraciones.";
             }
             MessageBox.Show(Resultados);
         }

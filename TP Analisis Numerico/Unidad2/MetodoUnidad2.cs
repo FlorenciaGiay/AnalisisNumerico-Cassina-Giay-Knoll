@@ -68,7 +68,7 @@ namespace Unidad_2
                 }
                 for (int i = 0; i < dimension; i++)
                 {
-                    if (Math.Abs(vectorResultado[i]-vectorAnterior[i])<0.0001)
+                    if (Math.Abs(vectorResultado[i]-vectorAnterior[i])==0) // Si usamos tolerancia ponemos <0.0001 y cambiamos el DialogBox de resultado.
                     {
                         menorTolerancia = true;
                     }
