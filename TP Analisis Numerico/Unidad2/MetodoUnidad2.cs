@@ -66,12 +66,17 @@ namespace Unidad_2
                     coeficienteIncognita = resultado / coeficienteIncognita;
                     vectorResultado[i] = coeficienteIncognita;
                 }
+                int contadorTrue = 0;
                 for (int i = 0; i < dimension; i++)
                 {
                     if (Math.Abs(vectorResultado[i]-vectorAnterior[i])==0) // Si usamos tolerancia ponemos <0.0001 y cambiamos el DialogBox de resultado.
                     {
-                        menorTolerancia = true;
-                    }
+                        contadorTrue++;
+                    }                    
+                }
+                if (contadorTrue == dimension)
+                {
+                    menorTolerancia = true;
                 }
             }
             if (contador >= 100)
