@@ -84,6 +84,10 @@
       <Project>{8b2ba2fb-e554-474f-9e10-ccf6b95361f2}</Project>
       <Name>Unidad 1</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Unidad 3\Unidad 3.csproj">
+      <Project>{a230208d-f238-45f6-99f8-7b2d4be45879}</Project>
+      <Name>Unidad 3</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Unidad2\Unidad 2.csproj">
       <Project>{8b72995c-8e55-4c3a-9865-97759da9a51d}</Project>
       <Name>Unidad 2</Name>

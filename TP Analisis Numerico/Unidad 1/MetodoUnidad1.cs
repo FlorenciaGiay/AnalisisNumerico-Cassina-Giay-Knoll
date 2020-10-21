@@ -11,7 +11,7 @@ namespace Unidad_1
         //Evaluar funcion
         private double EvaluarFuncion(double x)
         {
-            double resultado = Math.Log(x)+(1/x)-3;
+            double resultado = 2-((20-10*x)/(Math.Pow(x,2)-4*x+5));
             return resultado;
         }
 

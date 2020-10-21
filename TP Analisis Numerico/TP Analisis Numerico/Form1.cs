@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Unidad_1;
 using Unidad_2;
+using Unidad_3;
 
 namespace TP_Analisis_Numerico
 {
@@ -16,11 +17,13 @@ namespace TP_Analisis_Numerico
     {
         private MetodoUnidad1 Logica;
         private MetodoUnidad2 Logica2;
+        private MetodoUnidad3 Logica3;
         public FormPrincipal()
         {
             InitializeComponent();
             Logica = new MetodoUnidad1();
             Logica2 = new MetodoUnidad2();
+            Logica3 = new MetodoUnidad3();
         }
         
         // UNIDAD 1
@@ -234,6 +237,79 @@ namespace TP_Analisis_Numerico
             MessageBox.Show(Resultados);
         }
 
-        
+        //Unidad 3
+        private void btnCargarPunto_Click(object sender, EventArgs e)
+        {
+            if (tbxPuntoX.Text != "" && tbxPuntoY.Text != "")
+            {
+                Logica3.CargarElemento(double.Parse(tbxPuntoX.Text), double.Parse(tbxPuntoY.Text));
+                Label puntoIngresado = new Label();
+                puntoIngresado.Text = $"({tbxPuntoX.Text} " + "," + $" {tbxPuntoY.Text})";
+                int cantElementos = Logica3.ObtenerN();
+                int puntoY = (cantElementos - 1) * 17;
+                puntoIngresado.Location = new Point(0, puntoY);
+                puntoIngresado.Size = new Size(100, 16);
+                puntoIngresado.Font = new Font("Arial", 11);
+                panelPuntosIngresados.Controls.Add(puntoIngresado);
+                panelPuntosIngresados.Show();
+                tbxPuntoX.Clear();
+                tbxPuntoY.Clear();
+            }
+        }
+
+        private void btnBorrarUltimo_Click(object sender, EventArgs e)
+        {
+            int n = Logica3.ObtenerN();
+            Logica3.BorrarElementos("ultimo");
+            panelPuntosIngresados.Controls.RemoveAt(n - 1);
+        }
+
+        private void btnBorrarTodos_Click(object sender, EventArgs e)
+        {
+            Logica3.BorrarElementos("todos");
+            panelPuntosIngresados.Controls.Clear();
+        }
+
+        private void btnCalcularAjuste_Click(object sender, EventArgs e)
+        {
+            if (tbxToleranciaAjuste.Text!="")
+            {
+                Resultado ajuste = new Resultado();
+                switch (cbxMetodoAjuste.SelectedIndex)
+                {
+                    case 0:
+                        ajuste = Logica3.CalcularAjusteRegresionLineal(int.Parse(tbxToleranciaAjuste.Text));
+                        break;
+                    case 1:
+                        double[,] matriz = Logica3.GenerarMatrizPolinomial(int.Parse(tbxGrado.Text));
+                        double[] vector = Logica2.MetodoGaussJordan(int.Parse(tbxGrado.Text) + 1, matriz);
+                        for (int i = 0; i < vector.Length; i++)
+                        {
+                            vector[i] = Math.Round(vector[i], 4);
+                        }
+                        ajuste = Logica3.CalcularAjusteRegresionPolinomial(int.Parse(tbxToleranciaAjuste.Text), vector);
+                        break;
+                    case 2:
+                        break;
+                }
+                lblResultado.Text = ajuste.Funcion;
+                lblPorcentaje.Text = ajuste.PorcentajeEfectividad;
+                lblEfectividad.Text = ajuste.EfectividadAjuste;
+            }
+        }
+
+        private void cbxMetodoAjuste_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbxMetodoAjuste.SelectedIndex==1)
+            {
+                tbxGrado.Visible = true;
+                lblGrado.Visible = true;
+            }
+            else
+            {
+                tbxGrado.Visible = false;
+                lblGrado.Visible = false;
+            }
+        }
     }
 }

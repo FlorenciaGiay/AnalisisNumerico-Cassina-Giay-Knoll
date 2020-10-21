@@ -105,6 +105,28 @@
             this.label14 = new System.Windows.Forms.Label();
             this.cbxMetodo = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.tabUnidad3 = new System.Windows.Forms.TabPage();
+            this.lblEfectividad = new System.Windows.Forms.Label();
+            this.lblMensaje = new System.Windows.Forms.Label();
+            this.lblPorcentaje = new System.Windows.Forms.Label();
+            this.lblCorrelacion = new System.Windows.Forms.Label();
+            this.lblResultado = new System.Windows.Forms.Label();
+            this.lblFuncObtenida = new System.Windows.Forms.Label();
+            this.btnCalcularAjuste = new System.Windows.Forms.Button();
+            this.lblMetodo = new System.Windows.Forms.Label();
+            this.cbxMetodoAjuste = new System.Windows.Forms.ComboBox();
+            this.lblToleranciaAjuste = new System.Windows.Forms.Label();
+            this.tbxToleranciaAjuste = new System.Windows.Forms.TextBox();
+            this.btnBorrarTodos = new System.Windows.Forms.Button();
+            this.btnBorrarUltimo = new System.Windows.Forms.Button();
+            this.btnCargarPunto = new System.Windows.Forms.Button();
+            this.panelPuntosIngresados = new System.Windows.Forms.Panel();
+            this.lblPuntosIngresados = new System.Windows.Forms.Label();
+            this.lblCargarPuntos = new System.Windows.Forms.Label();
+            this.tbxPuntoY = new System.Windows.Forms.TextBox();
+            this.tbxPuntoX = new System.Windows.Forms.TextBox();
+            this.tbxGrado = new System.Windows.Forms.TextBox();
+            this.lblGrado = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabUnidad1.SuspendLayout();
             this.tabControl2.SuspendLayout();
@@ -120,12 +142,14 @@
             this.groupBox3.SuspendLayout();
             this.tituloEntrada.SuspendLayout();
             this.tabUnidad2.SuspendLayout();
+            this.tabUnidad3.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabUnidad1);
             this.tabControl1.Controls.Add(this.tabUnidad2);
+            this.tabControl1.Controls.Add(this.tabUnidad3);
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -889,11 +913,232 @@
             this.label8.TabIndex = 1;
             this.label8.Text = "Método:";
             // 
+            // tabUnidad3
+            // 
+            this.tabUnidad3.Controls.Add(this.lblGrado);
+            this.tabUnidad3.Controls.Add(this.tbxGrado);
+            this.tabUnidad3.Controls.Add(this.lblEfectividad);
+            this.tabUnidad3.Controls.Add(this.lblMensaje);
+            this.tabUnidad3.Controls.Add(this.lblPorcentaje);
+            this.tabUnidad3.Controls.Add(this.lblCorrelacion);
+            this.tabUnidad3.Controls.Add(this.lblResultado);
+            this.tabUnidad3.Controls.Add(this.lblFuncObtenida);
+            this.tabUnidad3.Controls.Add(this.btnCalcularAjuste);
+            this.tabUnidad3.Controls.Add(this.lblMetodo);
+            this.tabUnidad3.Controls.Add(this.cbxMetodoAjuste);
+            this.tabUnidad3.Controls.Add(this.lblToleranciaAjuste);
+            this.tabUnidad3.Controls.Add(this.tbxToleranciaAjuste);
+            this.tabUnidad3.Controls.Add(this.btnBorrarTodos);
+            this.tabUnidad3.Controls.Add(this.btnBorrarUltimo);
+            this.tabUnidad3.Controls.Add(this.btnCargarPunto);
+            this.tabUnidad3.Controls.Add(this.panelPuntosIngresados);
+            this.tabUnidad3.Controls.Add(this.lblPuntosIngresados);
+            this.tabUnidad3.Controls.Add(this.lblCargarPuntos);
+            this.tabUnidad3.Controls.Add(this.tbxPuntoY);
+            this.tabUnidad3.Controls.Add(this.tbxPuntoX);
+            this.tabUnidad3.Location = new System.Drawing.Point(4, 22);
+            this.tabUnidad3.Name = "tabUnidad3";
+            this.tabUnidad3.Size = new System.Drawing.Size(965, 485);
+            this.tabUnidad3.TabIndex = 2;
+            this.tabUnidad3.Text = "Unidad 3";
+            this.tabUnidad3.UseVisualStyleBackColor = true;
+            // 
+            // lblEfectividad
+            // 
+            this.lblEfectividad.AutoSize = true;
+            this.lblEfectividad.Location = new System.Drawing.Point(177, 304);
+            this.lblEfectividad.Name = "lblEfectividad";
+            this.lblEfectividad.Size = new System.Drawing.Size(13, 13);
+            this.lblEfectividad.TabIndex = 19;
+            this.lblEfectividad.Text = "--";
+            // 
+            // lblMensaje
+            // 
+            this.lblMensaje.AutoSize = true;
+            this.lblMensaje.Location = new System.Drawing.Point(47, 304);
+            this.lblMensaje.Name = "lblMensaje";
+            this.lblMensaje.Size = new System.Drawing.Size(112, 13);
+            this.lblMensaje.TabIndex = 18;
+            this.lblMensaje.Text = "Efectividad del Ajuste:";
+            // 
+            // lblPorcentaje
+            // 
+            this.lblPorcentaje.AutoSize = true;
+            this.lblPorcentaje.Location = new System.Drawing.Point(177, 266);
+            this.lblPorcentaje.Name = "lblPorcentaje";
+            this.lblPorcentaje.Size = new System.Drawing.Size(13, 13);
+            this.lblPorcentaje.TabIndex = 17;
+            this.lblPorcentaje.Text = "--";
+            // 
+            // lblCorrelacion
+            // 
+            this.lblCorrelacion.AutoSize = true;
+            this.lblCorrelacion.Location = new System.Drawing.Point(47, 266);
+            this.lblCorrelacion.Name = "lblCorrelacion";
+            this.lblCorrelacion.Size = new System.Drawing.Size(91, 13);
+            this.lblCorrelacion.TabIndex = 16;
+            this.lblCorrelacion.Text = "Porc. Correlación:";
+            // 
+            // lblResultado
+            // 
+            this.lblResultado.AutoSize = true;
+            this.lblResultado.Location = new System.Drawing.Point(177, 227);
+            this.lblResultado.Name = "lblResultado";
+            this.lblResultado.Size = new System.Drawing.Size(13, 13);
+            this.lblResultado.TabIndex = 15;
+            this.lblResultado.Text = "--";
+            // 
+            // lblFuncObtenida
+            // 
+            this.lblFuncObtenida.AutoSize = true;
+            this.lblFuncObtenida.Location = new System.Drawing.Point(47, 227);
+            this.lblFuncObtenida.Name = "lblFuncObtenida";
+            this.lblFuncObtenida.Size = new System.Drawing.Size(97, 13);
+            this.lblFuncObtenida.TabIndex = 14;
+            this.lblFuncObtenida.Text = "Función Obtenida: ";
+            // 
+            // btnCalcularAjuste
+            // 
+            this.btnCalcularAjuste.Location = new System.Drawing.Point(325, 123);
+            this.btnCalcularAjuste.Name = "btnCalcularAjuste";
+            this.btnCalcularAjuste.Size = new System.Drawing.Size(106, 23);
+            this.btnCalcularAjuste.TabIndex = 13;
+            this.btnCalcularAjuste.Text = "CALCULAR";
+            this.btnCalcularAjuste.UseVisualStyleBackColor = true;
+            this.btnCalcularAjuste.Click += new System.EventHandler(this.btnCalcularAjuste_Click);
+            // 
+            // lblMetodo
+            // 
+            this.lblMetodo.AutoSize = true;
+            this.lblMetodo.Location = new System.Drawing.Point(41, 148);
+            this.lblMetodo.Name = "lblMetodo";
+            this.lblMetodo.Size = new System.Drawing.Size(87, 13);
+            this.lblMetodo.TabIndex = 12;
+            this.lblMetodo.Text = "Método a utilizar:";
+            // 
+            // cbxMetodoAjuste
+            // 
+            this.cbxMetodoAjuste.FormattingEnabled = true;
+            this.cbxMetodoAjuste.Items.AddRange(new object[] {
+            "Regresión Lineal",
+            "Regresión Polinomial",
+            "Lagrange"});
+            this.cbxMetodoAjuste.Location = new System.Drawing.Point(44, 172);
+            this.cbxMetodoAjuste.Name = "cbxMetodoAjuste";
+            this.cbxMetodoAjuste.Size = new System.Drawing.Size(121, 21);
+            this.cbxMetodoAjuste.TabIndex = 11;
+            this.cbxMetodoAjuste.SelectedIndexChanged += new System.EventHandler(this.cbxMetodoAjuste_SelectedIndexChanged);
+            // 
+            // lblToleranciaAjuste
+            // 
+            this.lblToleranciaAjuste.AutoSize = true;
+            this.lblToleranciaAjuste.Location = new System.Drawing.Point(41, 92);
+            this.lblToleranciaAjuste.Name = "lblToleranciaAjuste";
+            this.lblToleranciaAjuste.Size = new System.Drawing.Size(60, 13);
+            this.lblToleranciaAjuste.TabIndex = 9;
+            this.lblToleranciaAjuste.Text = "Tolerancia:";
+            // 
+            // tbxToleranciaAjuste
+            // 
+            this.tbxToleranciaAjuste.Location = new System.Drawing.Point(44, 108);
+            this.tbxToleranciaAjuste.Name = "tbxToleranciaAjuste";
+            this.tbxToleranciaAjuste.Size = new System.Drawing.Size(52, 20);
+            this.tbxToleranciaAjuste.TabIndex = 8;
+            // 
+            // btnBorrarTodos
+            // 
+            this.btnBorrarTodos.Location = new System.Drawing.Point(674, 199);
+            this.btnBorrarTodos.Name = "btnBorrarTodos";
+            this.btnBorrarTodos.Size = new System.Drawing.Size(106, 23);
+            this.btnBorrarTodos.TabIndex = 7;
+            this.btnBorrarTodos.Text = "BORRAR TODOS";
+            this.btnBorrarTodos.UseVisualStyleBackColor = true;
+            this.btnBorrarTodos.Click += new System.EventHandler(this.btnBorrarTodos_Click);
+            // 
+            // btnBorrarUltimo
+            // 
+            this.btnBorrarUltimo.Location = new System.Drawing.Point(674, 138);
+            this.btnBorrarUltimo.Name = "btnBorrarUltimo";
+            this.btnBorrarUltimo.Size = new System.Drawing.Size(106, 23);
+            this.btnBorrarUltimo.TabIndex = 6;
+            this.btnBorrarUltimo.Text = "BORRAR ULTIMO";
+            this.btnBorrarUltimo.UseVisualStyleBackColor = true;
+            this.btnBorrarUltimo.Click += new System.EventHandler(this.btnBorrarUltimo_Click);
+            // 
+            // btnCargarPunto
+            // 
+            this.btnCargarPunto.Location = new System.Drawing.Point(228, 53);
+            this.btnCargarPunto.Name = "btnCargarPunto";
+            this.btnCargarPunto.Size = new System.Drawing.Size(106, 23);
+            this.btnCargarPunto.TabIndex = 5;
+            this.btnCargarPunto.Text = "CARGAR";
+            this.btnCargarPunto.UseVisualStyleBackColor = true;
+            this.btnCargarPunto.Click += new System.EventHandler(this.btnCargarPunto_Click);
+            // 
+            // panelPuntosIngresados
+            // 
+            this.panelPuntosIngresados.BackColor = System.Drawing.Color.Silver;
+            this.panelPuntosIngresados.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panelPuntosIngresados.Location = new System.Drawing.Point(468, 49);
+            this.panelPuntosIngresados.Name = "panelPuntosIngresados";
+            this.panelPuntosIngresados.Size = new System.Drawing.Size(169, 303);
+            this.panelPuntosIngresados.TabIndex = 4;
+            // 
+            // lblPuntosIngresados
+            // 
+            this.lblPuntosIngresados.AutoSize = true;
+            this.lblPuntosIngresados.Location = new System.Drawing.Point(465, 23);
+            this.lblPuntosIngresados.Name = "lblPuntosIngresados";
+            this.lblPuntosIngresados.Size = new System.Drawing.Size(98, 13);
+            this.lblPuntosIngresados.TabIndex = 3;
+            this.lblPuntosIngresados.Text = "Puntos Ingresados:";
+            // 
+            // lblCargarPuntos
+            // 
+            this.lblCargarPuntos.AutoSize = true;
+            this.lblCargarPuntos.Location = new System.Drawing.Point(41, 23);
+            this.lblCargarPuntos.Name = "lblCargarPuntos";
+            this.lblCargarPuntos.Size = new System.Drawing.Size(111, 13);
+            this.lblCargarPuntos.TabIndex = 2;
+            this.lblCargarPuntos.Text = "Ingresar Punto (X , Y):";
+            // 
+            // tbxPuntoY
+            // 
+            this.tbxPuntoY.Location = new System.Drawing.Point(129, 53);
+            this.tbxPuntoY.Name = "tbxPuntoY";
+            this.tbxPuntoY.Size = new System.Drawing.Size(52, 20);
+            this.tbxPuntoY.TabIndex = 1;
+            // 
+            // tbxPuntoX
+            // 
+            this.tbxPuntoX.Location = new System.Drawing.Point(44, 53);
+            this.tbxPuntoX.Name = "tbxPuntoX";
+            this.tbxPuntoX.Size = new System.Drawing.Size(52, 20);
+            this.tbxPuntoX.TabIndex = 0;
+            // 
+            // tbxGrado
+            // 
+            this.tbxGrado.Location = new System.Drawing.Point(201, 172);
+            this.tbxGrado.Name = "tbxGrado";
+            this.tbxGrado.Size = new System.Drawing.Size(100, 20);
+            this.tbxGrado.TabIndex = 20;
+            this.tbxGrado.Visible = false;
+            // 
+            // lblGrado
+            // 
+            this.lblGrado.AutoSize = true;
+            this.lblGrado.Location = new System.Drawing.Point(198, 148);
+            this.lblGrado.Name = "lblGrado";
+            this.lblGrado.Size = new System.Drawing.Size(87, 13);
+            this.lblGrado.TabIndex = 21;
+            this.lblGrado.Text = "Grado Polinomio:";
+            this.lblGrado.Visible = false;
+            // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(997, 535);
+            this.ClientSize = new System.Drawing.Size(854, 524);
             this.Controls.Add(this.tabControl1);
             this.Name = "FormPrincipal";
             this.Text = "Métodos Numéricos";
@@ -919,6 +1164,8 @@
             this.tituloEntrada.PerformLayout();
             this.tabUnidad2.ResumeLayout(false);
             this.tabUnidad2.PerformLayout();
+            this.tabUnidad3.ResumeLayout(false);
+            this.tabUnidad3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1002,6 +1249,28 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btnCalcular;
         private System.Windows.Forms.Panel panelMatriz;
+        private System.Windows.Forms.TabPage tabUnidad3;
+        private System.Windows.Forms.Label lblCargarPuntos;
+        private System.Windows.Forms.TextBox tbxPuntoY;
+        private System.Windows.Forms.TextBox tbxPuntoX;
+        private System.Windows.Forms.Label lblMetodo;
+        private System.Windows.Forms.ComboBox cbxMetodoAjuste;
+        private System.Windows.Forms.Label lblToleranciaAjuste;
+        private System.Windows.Forms.TextBox tbxToleranciaAjuste;
+        private System.Windows.Forms.Button btnBorrarTodos;
+        private System.Windows.Forms.Button btnBorrarUltimo;
+        private System.Windows.Forms.Button btnCargarPunto;
+        private System.Windows.Forms.Panel panelPuntosIngresados;
+        private System.Windows.Forms.Label lblPuntosIngresados;
+        private System.Windows.Forms.Label lblPorcentaje;
+        private System.Windows.Forms.Label lblCorrelacion;
+        private System.Windows.Forms.Label lblResultado;
+        private System.Windows.Forms.Label lblFuncObtenida;
+        private System.Windows.Forms.Button btnCalcularAjuste;
+        private System.Windows.Forms.Label lblEfectividad;
+        private System.Windows.Forms.Label lblMensaje;
+        private System.Windows.Forms.Label lblGrado;
+        private System.Windows.Forms.TextBox tbxGrado;
     }
 }
 
