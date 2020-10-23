@@ -287,7 +287,7 @@ namespace TP_Analisis_Numerico
                         {
                             vector[i] = Math.Round(vector[i], 4);
                         }
-                        ajuste = Logica3.CalcularAjusteRegresionPolinomial(int.Parse(tbxToleranciaAjuste.Text), vector);
+                        ajuste = Logica3.CalcularAjusteRegresionPolinomial(int.Parse(tbxToleranciaAjuste.Text), vector, int.Parse(tbxGrado.Text));
                         break;
                     case 2:
                         break;

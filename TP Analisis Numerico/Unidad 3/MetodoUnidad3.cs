@@ -112,7 +112,7 @@ namespace Unidad_3
             return matriz;
         }
 
-        public Resultado CalcularAjusteRegresionPolinomial(double tolerancia, double[] vectorResultados)
+        public Resultado CalcularAjusteRegresionPolinomial(double tolerancia, double[] vectorResultados, int grado)
         {
             Resultado ajuste = new Resultado();
             string funcion = "";
@@ -128,18 +128,23 @@ namespace Unidad_3
                 }
             }
             funcion = "y = " + funcion;
-            /*double sumatoriaY = CalcularSumatoria("y");
+            double sumatoriaY = CalcularSumatoria("y");
             double n = ObtenerN();
             double sr = 0;
             double st = 0;
-            for (int i = 0; i < n-1; i++)
+            for (int i = 0; i < n; i++)
             {
-                sr += Math.Pow(Math.Abs(ElementosCargados[i][1] - EvaluarFuncion(vectorResultados, ElementosCargados[i][0])), 2);
-                st += Math.Pow((sumatoriaY / n) - ElementosCargados[i][1], 2);
+                st = st + Math.Pow((sumatoriaY / n) - ElementosCargados[i][1], 2);
+                double s = 0;
+                for (int j = 0; j < grado+1; j++)
+                {
+                    s = s + (vectorResultados[j] * Math.Pow(ElementosCargados[i][0], j));
+                }
+                sr = sr + Math.Pow(s - ElementosCargados[i][1], 2);
             }
-            double r = Math.Sqrt((st - sr) / st) * 100;*/
+            double r = Math.Sqrt((st - sr) / st) * 100;
             ajuste.Funcion = funcion;
-            /*ajuste.PorcentajeEfectividad = $"{r}%";
+            ajuste.PorcentajeEfectividad = $"{r}%";
             if (r < tolerancia)
             {
                 ajuste.EfectividadAjuste = "El ajuste no es aceptable.";
@@ -147,7 +152,7 @@ namespace Unidad_3
             else
             {
                 ajuste.EfectividadAjuste = "El ajuste es aceptable.";
-            }*/
+            }
             return ajuste;
         }
 
