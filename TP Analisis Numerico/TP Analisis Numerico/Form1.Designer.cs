@@ -106,6 +106,8 @@
             this.cbxMetodo = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.tabUnidad3 = new System.Windows.Forms.TabPage();
+            this.lblGrado = new System.Windows.Forms.Label();
+            this.tbxGrado = new System.Windows.Forms.TextBox();
             this.lblEfectividad = new System.Windows.Forms.Label();
             this.lblMensaje = new System.Windows.Forms.Label();
             this.lblPorcentaje = new System.Windows.Forms.Label();
@@ -125,8 +127,19 @@
             this.lblCargarPuntos = new System.Windows.Forms.Label();
             this.tbxPuntoY = new System.Windows.Forms.TextBox();
             this.tbxPuntoX = new System.Windows.Forms.TextBox();
-            this.tbxGrado = new System.Windows.Forms.TextBox();
-            this.lblGrado = new System.Windows.Forms.Label();
+            this.tpUnidad4 = new System.Windows.Forms.TabPage();
+            this.cbxMetodoIntegracion = new System.Windows.Forms.ComboBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.tbxFuncionIntegrar = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.tbxInicioIntervalo = new System.Windows.Forms.TextBox();
+            this.tbxFinIntervalo = new System.Windows.Forms.TextBox();
+            this.lblSubintervalos = new System.Windows.Forms.Label();
+            this.tbxCantIntervalos = new System.Windows.Forms.TextBox();
+            this.btnCalcularIntegracion = new System.Windows.Forms.Button();
+            this.label21 = new System.Windows.Forms.Label();
+            this.lblResultadoIntegracion = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabUnidad1.SuspendLayout();
             this.tabControl2.SuspendLayout();
@@ -143,6 +156,7 @@
             this.tituloEntrada.SuspendLayout();
             this.tabUnidad2.SuspendLayout();
             this.tabUnidad3.SuspendLayout();
+            this.tpUnidad4.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -150,6 +164,7 @@
             this.tabControl1.Controls.Add(this.tabUnidad1);
             this.tabControl1.Controls.Add(this.tabUnidad2);
             this.tabControl1.Controls.Add(this.tabUnidad3);
+            this.tabControl1.Controls.Add(this.tpUnidad4);
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -943,6 +958,24 @@
             this.tabUnidad3.Text = "Unidad 3";
             this.tabUnidad3.UseVisualStyleBackColor = true;
             // 
+            // lblGrado
+            // 
+            this.lblGrado.AutoSize = true;
+            this.lblGrado.Location = new System.Drawing.Point(198, 148);
+            this.lblGrado.Name = "lblGrado";
+            this.lblGrado.Size = new System.Drawing.Size(87, 13);
+            this.lblGrado.TabIndex = 21;
+            this.lblGrado.Text = "Grado Polinomio:";
+            this.lblGrado.Visible = false;
+            // 
+            // tbxGrado
+            // 
+            this.tbxGrado.Location = new System.Drawing.Point(201, 172);
+            this.tbxGrado.Name = "tbxGrado";
+            this.tbxGrado.Size = new System.Drawing.Size(100, 20);
+            this.tbxGrado.TabIndex = 20;
+            this.tbxGrado.Visible = false;
+            // 
             // lblEfectividad
             // 
             this.lblEfectividad.AutoSize = true;
@@ -1116,23 +1149,136 @@
             this.tbxPuntoX.Size = new System.Drawing.Size(52, 20);
             this.tbxPuntoX.TabIndex = 0;
             // 
-            // tbxGrado
+            // tpUnidad4
             // 
-            this.tbxGrado.Location = new System.Drawing.Point(201, 172);
-            this.tbxGrado.Name = "tbxGrado";
-            this.tbxGrado.Size = new System.Drawing.Size(100, 20);
-            this.tbxGrado.TabIndex = 20;
-            this.tbxGrado.Visible = false;
+            this.tpUnidad4.Controls.Add(this.lblResultadoIntegracion);
+            this.tpUnidad4.Controls.Add(this.label21);
+            this.tpUnidad4.Controls.Add(this.btnCalcularIntegracion);
+            this.tpUnidad4.Controls.Add(this.tbxCantIntervalos);
+            this.tpUnidad4.Controls.Add(this.lblSubintervalos);
+            this.tpUnidad4.Controls.Add(this.tbxFinIntervalo);
+            this.tpUnidad4.Controls.Add(this.tbxInicioIntervalo);
+            this.tpUnidad4.Controls.Add(this.label20);
+            this.tpUnidad4.Controls.Add(this.tbxFuncionIntegrar);
+            this.tpUnidad4.Controls.Add(this.label16);
+            this.tpUnidad4.Controls.Add(this.label15);
+            this.tpUnidad4.Controls.Add(this.cbxMetodoIntegracion);
+            this.tpUnidad4.Location = new System.Drawing.Point(4, 22);
+            this.tpUnidad4.Name = "tpUnidad4";
+            this.tpUnidad4.Size = new System.Drawing.Size(965, 485);
+            this.tpUnidad4.TabIndex = 3;
+            this.tpUnidad4.Text = "Unidad 4";
+            this.tpUnidad4.UseVisualStyleBackColor = true;
             // 
-            // lblGrado
+            // cbxMetodoIntegracion
             // 
-            this.lblGrado.AutoSize = true;
-            this.lblGrado.Location = new System.Drawing.Point(198, 148);
-            this.lblGrado.Name = "lblGrado";
-            this.lblGrado.Size = new System.Drawing.Size(87, 13);
-            this.lblGrado.TabIndex = 21;
-            this.lblGrado.Text = "Grado Polinomio:";
-            this.lblGrado.Visible = false;
+            this.cbxMetodoIntegracion.FormattingEnabled = true;
+            this.cbxMetodoIntegracion.Items.AddRange(new object[] {
+            "Trapecio Simple",
+            "Trapecios Múltiples",
+            "Simpson 1/3 Simple",
+            "Simpson 1/3 Múltiple",
+            "Simpson 3/8"});
+            this.cbxMetodoIntegracion.Location = new System.Drawing.Point(131, 11);
+            this.cbxMetodoIntegracion.Name = "cbxMetodoIntegracion";
+            this.cbxMetodoIntegracion.Size = new System.Drawing.Size(121, 21);
+            this.cbxMetodoIntegracion.TabIndex = 0;
+            this.cbxMetodoIntegracion.SelectedIndexChanged += new System.EventHandler(this.cbxMetodoIntegracion_SelectedIndexChanged);
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(14, 14);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(89, 13);
+            this.label15.TabIndex = 1;
+            this.label15.Text = "Método a Utilizar:";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(14, 81);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(96, 13);
+            this.label16.TabIndex = 2;
+            this.label16.Text = "Función a Evaluar:";
+            // 
+            // tbxFuncionIntegrar
+            // 
+            this.tbxFuncionIntegrar.Location = new System.Drawing.Point(152, 78);
+            this.tbxFuncionIntegrar.Name = "tbxFuncionIntegrar";
+            this.tbxFuncionIntegrar.Size = new System.Drawing.Size(100, 20);
+            this.tbxFuncionIntegrar.TabIndex = 3;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(14, 152);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(51, 13);
+            this.label20.TabIndex = 4;
+            this.label20.Text = "Intervalo:";
+            // 
+            // tbxInicioIntervalo
+            // 
+            this.tbxInicioIntervalo.Location = new System.Drawing.Point(80, 149);
+            this.tbxInicioIntervalo.Name = "tbxInicioIntervalo";
+            this.tbxInicioIntervalo.Size = new System.Drawing.Size(100, 20);
+            this.tbxInicioIntervalo.TabIndex = 5;
+            // 
+            // tbxFinIntervalo
+            // 
+            this.tbxFinIntervalo.Location = new System.Drawing.Point(221, 149);
+            this.tbxFinIntervalo.Name = "tbxFinIntervalo";
+            this.tbxFinIntervalo.Size = new System.Drawing.Size(100, 20);
+            this.tbxFinIntervalo.TabIndex = 6;
+            // 
+            // lblSubintervalos
+            // 
+            this.lblSubintervalos.AutoSize = true;
+            this.lblSubintervalos.Location = new System.Drawing.Point(14, 211);
+            this.lblSubintervalos.Name = "lblSubintervalos";
+            this.lblSubintervalos.Size = new System.Drawing.Size(74, 13);
+            this.lblSubintervalos.TabIndex = 7;
+            this.lblSubintervalos.Text = "Subintervalos:";
+            this.lblSubintervalos.Visible = false;
+            // 
+            // tbxCantIntervalos
+            // 
+            this.tbxCantIntervalos.Location = new System.Drawing.Point(152, 208);
+            this.tbxCantIntervalos.Name = "tbxCantIntervalos";
+            this.tbxCantIntervalos.Size = new System.Drawing.Size(100, 20);
+            this.tbxCantIntervalos.TabIndex = 8;
+            this.tbxCantIntervalos.Visible = false;
+            // 
+            // btnCalcularIntegracion
+            // 
+            this.btnCalcularIntegracion.Location = new System.Drawing.Point(80, 267);
+            this.btnCalcularIntegracion.Name = "btnCalcularIntegracion";
+            this.btnCalcularIntegracion.Size = new System.Drawing.Size(126, 47);
+            this.btnCalcularIntegracion.TabIndex = 9;
+            this.btnCalcularIntegracion.Text = "CALCULAR";
+            this.btnCalcularIntegracion.UseVisualStyleBackColor = true;
+            this.btnCalcularIntegracion.Click += new System.EventHandler(this.btnCalcularIntegracion_Click);
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.Location = new System.Drawing.Point(426, 151);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(90, 13);
+            this.label21.TabIndex = 10;
+            this.label21.Text = "RESULTADO: ";
+            // 
+            // lblResultadoIntegracion
+            // 
+            this.lblResultadoIntegracion.AutoSize = true;
+            this.lblResultadoIntegracion.Location = new System.Drawing.Point(551, 150);
+            this.lblResultadoIntegracion.Name = "lblResultadoIntegracion";
+            this.lblResultadoIntegracion.Size = new System.Drawing.Size(10, 13);
+            this.lblResultadoIntegracion.TabIndex = 11;
+            this.lblResultadoIntegracion.Text = "-";
             // 
             // FormPrincipal
             // 
@@ -1166,6 +1312,8 @@
             this.tabUnidad2.PerformLayout();
             this.tabUnidad3.ResumeLayout(false);
             this.tabUnidad3.PerformLayout();
+            this.tpUnidad4.ResumeLayout(false);
+            this.tpUnidad4.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1271,6 +1419,19 @@
         private System.Windows.Forms.Label lblMensaje;
         private System.Windows.Forms.Label lblGrado;
         private System.Windows.Forms.TextBox tbxGrado;
+        private System.Windows.Forms.TabPage tpUnidad4;
+        private System.Windows.Forms.TextBox tbxCantIntervalos;
+        private System.Windows.Forms.Label lblSubintervalos;
+        private System.Windows.Forms.TextBox tbxFinIntervalo;
+        private System.Windows.Forms.TextBox tbxInicioIntervalo;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.TextBox tbxFuncionIntegrar;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.ComboBox cbxMetodoIntegracion;
+        private System.Windows.Forms.Label lblResultadoIntegracion;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Button btnCalcularIntegracion;
     }
 }
 

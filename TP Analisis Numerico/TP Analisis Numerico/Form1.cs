@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Unidad_1;
 using Unidad_2;
 using Unidad_3;
+using Unidad_4;
 
 namespace TP_Analisis_Numerico
 {
@@ -18,12 +19,14 @@ namespace TP_Analisis_Numerico
         private MetodoUnidad1 Logica;
         private MetodoUnidad2 Logica2;
         private MetodoUnidad3 Logica3;
+        private MetodoUnidad4 Logica4;
         public FormPrincipal()
         {
             InitializeComponent();
             Logica = new MetodoUnidad1();
             Logica2 = new MetodoUnidad2();
             Logica3 = new MetodoUnidad3();
+            Logica4 = new MetodoUnidad4();
         }
         
         // UNIDAD 1
@@ -278,7 +281,7 @@ namespace TP_Analisis_Numerico
                 switch (cbxMetodoAjuste.SelectedIndex)
                 {
                     case 0:
-                        ajuste = Logica3.CalcularAjusteRegresionLineal(int.Parse(tbxToleranciaAjuste.Text));
+                        ajuste = Logica3.CalcularAjusteRegresionLineal(double.Parse(tbxToleranciaAjuste.Text));
                         break;
                     case 1:
                         double[,] matriz = Logica3.GenerarMatrizPolinomial(int.Parse(tbxGrado.Text));
@@ -287,7 +290,7 @@ namespace TP_Analisis_Numerico
                         {
                             vector[i] = Math.Round(vector[i], 4);
                         }
-                        ajuste = Logica3.CalcularAjusteRegresionPolinomial(int.Parse(tbxToleranciaAjuste.Text), vector, int.Parse(tbxGrado.Text));
+                        ajuste = Logica3.CalcularAjusteRegresionPolinomial(double.Parse(tbxToleranciaAjuste.Text), vector, int.Parse(tbxGrado.Text));
                         break;
                     case 2:
                         break;
@@ -309,6 +312,54 @@ namespace TP_Analisis_Numerico
             {
                 tbxGrado.Visible = false;
                 lblGrado.Visible = false;
+            }
+        }
+
+        //Unidad 4
+        private void cbxMetodoIntegracion_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbxMetodoIntegracion.SelectedIndex == 1 || cbxMetodoIntegracion.SelectedIndex == 3)
+            {
+                lblSubintervalos.Visible = true;
+                tbxCantIntervalos.Visible = true;
+            }
+            else
+            {
+                lblSubintervalos.Visible = false;
+                tbxCantIntervalos.Visible = false;
+            }
+        }
+
+        private void btnCalcularIntegracion_Click(object sender, EventArgs e)
+        {
+            if (tbxFuncionIntegrar.Text!="" && tbxInicioIntervalo.Text!="" && tbxFinIntervalo.Text!="")
+            {
+                double resultado = 0;
+                switch (cbxMetodoIntegracion.SelectedIndex)
+                {
+                    case 0:
+                        resultado = Logica4.CalcularIntegralTrapecioSimple(double.Parse(tbxInicioIntervalo.Text), double.Parse(tbxFinIntervalo.Text));
+                        break;
+                    case 1:
+                        if (tbxCantIntervalos.Text!="")
+                        {
+                            resultado = Logica4.CalcularIntegralTrapeciosMultiples(double.Parse(tbxInicioIntervalo.Text), double.Parse(tbxFinIntervalo.Text), int.Parse(tbxCantIntervalos.Text));
+                        }
+                        break;
+                    case 2:
+                        resultado = Logica4.CalcularIntegralSimpson1_3Simple(double.Parse(tbxInicioIntervalo.Text), double.Parse(tbxFinIntervalo.Text));
+                        break;
+                    case 3:
+                        if (tbxCantIntervalos.Text != "" && int.Parse(tbxCantIntervalos.Text)%2==0)
+                        {
+                            resultado = Logica4.CalcularIntegralSimpson1_3Multiple(double.Parse(tbxInicioIntervalo.Text), double.Parse(tbxFinIntervalo.Text), int.Parse(tbxCantIntervalos.Text));
+                        }
+                        break;
+                    case 4:
+                        resultado = Logica4.CalcularIntegralSimpson3_8(double.Parse(tbxInicioIntervalo.Text), double.Parse(tbxFinIntervalo.Text));
+                        break;
+                }
+                lblResultadoIntegracion.Text = $"{resultado}";
             }
         }
     }
