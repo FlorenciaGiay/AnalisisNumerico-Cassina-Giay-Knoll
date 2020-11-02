@@ -76,12 +76,13 @@ namespace Unidad_3
             double a0 = (sumatoriaY / n) - (a1 * (sumatoriaX / n));
             double sr = 0;
             double st = 0;
-            for (int i = 0; i < n-1; i++)
+            for (int i = 0; i < n; i++)
             {
-                sr += Math.Pow((a1 * ElementosCargados[i][0]) + a0 - ElementosCargados[i][1], 2);
-                st += Math.Pow((sumatoriaY / n) - ElementosCargados[i][1], 2);
+                double[] Elemento = ElementosCargados[i];
+                sr += Math.Pow(((a1 * Elemento[0]) + a0 - Elemento[1]), 2);
+                st += Math.Pow((sumatoriaY / n) - Elemento[1], 2);
             }
-            double r = Math.Sqrt((st - sr) / st) * 100;
+            double r = (Math.Sqrt((st - sr) / st)) * 100;
             ajuste.Funcion = $"y = {a1}x + {a0}";
             ajuste.PorcentajeEfectividad = $"{r}%";
             if (r < tolerancia)

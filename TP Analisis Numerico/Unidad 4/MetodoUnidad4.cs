@@ -10,7 +10,7 @@ namespace Unidad_4
     {
         private double EvaluarFuncion(double x)
         {
-            return 0.2+25*x-200*Math.Pow(x,2)+675*Math.Pow(x,3)-900*Math.Pow(x,4)+400*Math.Pow(x,5);
+            return -0.75*Math.Pow(x,2)-x+4;
         }
 
         public double CalcularIntegralTrapecioSimple (double a, double b)
